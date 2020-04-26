@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược các phần tử của mảng</title>
+</head>
+<body>
+<script>
+    let array = [1,2,3,12,34,5,11,8,9,30];
+    let array1 =[];
+    let n = array.length;
+    for(let i =0; i<n; i++){
+        array1.push(array[n-1-i])
+    }
+    alert("Mảng  " + array+ " sau kh đảo ngược là là: "+array1);
+</script>
+</body>
+</html>

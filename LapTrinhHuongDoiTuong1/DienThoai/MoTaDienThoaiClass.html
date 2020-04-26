@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Tạo lớp cho số điện thoại</title>
+</head>
+<body>
+    <script>
+
+
+        function Mobile(name,OnOff,battery,draft,inbox,sent) {
+            this.power = OnOff;
+            this.battery = battery;
+            this.draft = draft;
+            this.inbox = inbox;
+            this.sented = sent;
+            this.name = name;
+
+            this.turnOn = function () {
+                this.power="ON"
+            };
+
+            this.chargingBattery = function () {
+                if (this.battery <= 90) {
+                    this.battery += 10
+                }
+            };
+
+            this.makeDraft = function () {
+                if (this.power ==="ON" && this.battery > 0) {
+                    this.draft.push(prompt(this.name+ "Soan tin nhan"));
+                    this.battery--;
+                } else {
+                    alert(" Mobile Turn OFF")
+                }
+            };
+
+            this.sentMessage = function (mobile, message) {
+                if (this.power==="ON" && this.battery > 0) {
+                    mobile.inbox.push(message);
+                    this.sented.push(message);
+                    this.draft.pop();
+                    this.battery--;
+                    mobile.battery--;
+                } else {
+                    alert(" Mobile Turn OFF")
+                }
+            };
+
+            // this.receiveMessage = function () {
+            //     if (this.turnOn() && this.battery > 0) {
+            //
+            //     } else {
+            //         alert(" Mobile Turn OFF")
+            //     }
+            // };
+
+            this.showInBox = function () {
+                if (this.power==="ON" && this.battery > 0) {
+                    alert(this.name +"đã nhận được tin nhắn"+ this.inbox);
+                    this.battery--;
+                } else {
+                    alert(" Mobile Turn OFF")
+                }
+            };
+
+            this.showSentedMessage = function () {
+                if (this.power==="ON" && this.battery > 0) {
+                    alert("Tin nhắn đã gửi từ máy:"+this.name+ this.sented);
+                    this.battery--;
+                    } else {
+                        alert(" Mobile Turn OFF")
+                    }
+            };
+        }
+        let nokia = new Mobile("Nokia","ON",100,[],[],[]);
+        let iphone = new Mobile("Iphone","ON",100,[],[],[]);
+        nokia.makeDraft();
+        nokia.sentMessage(iphone,nokia.draft[nokia.draft.length -1]);
+        iphone.showInBox();
+        nokia.showSentedMessage();
+
+    </script>
+</body>
+</html>

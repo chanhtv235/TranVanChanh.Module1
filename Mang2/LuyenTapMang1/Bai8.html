@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sắp xếp mảng theo thứ tự giảm dần</title>
+</head>
+<body>
+<script>
+    let array = [1,2,3,12,34,5,11,8,9,30];
+    for(let i =0; i<array.length; i++){
+        for (let j=1; j<array.length; j++){
+            if(array[j-1]>array[j]){
+                let tam = array[j-1];
+                array[j-1] = array[j];
+                array[j] =tam;
+            }
+        }
+    }
+    alert("Mảng sau khi được sắp xếp lại:"+ array);
+</script>
+</body>
+</html>

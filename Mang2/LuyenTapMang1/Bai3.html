@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị lơn nhất và tính giá trị trung bình</title>
+</head>
+<body>
+<script>
+    let array = [1,2,3,12,34,5,11,8,9,3];
+    let sum =0;
+    let max = array[0];
+    for(let i =1; i<array.length; i++){
+        sum += array[i];
+        if(array[i]>max){
+            max = array[i];
+            index = i;
+        }
+    }
+    alert("Phần tử lớn nhất trong mảng " + array+ " là: " + max +" và giá trị trung bình là là: "+sum/array.length);
+</script>
+</body>
+</html>

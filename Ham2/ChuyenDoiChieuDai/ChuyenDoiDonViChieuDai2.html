@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chuyển đổi đơn vị </h1><br>
+<input type="text" id="input">&nbsp;<select id="donVi">
+    <option value="met">Met</option>
+    <option value="feet">Feet</option>
+</select>&nbsp;<button onclick="show()">Convert</button>
+<br>
+<hr>
+<br>
+<p id="result"></p>
+<script>
+    function show(){
+        let val = document.getElementById("input").value;
+        let donVi = document.getElementById("donVi").value;
+
+        let result = convert(val,donVi);
+        if (donVi=="met"){
+            document.getElementById("result").innerHTML = result+" feet";
+        }else if (donVi=="feet"){
+            document.getElementById("result").innerHTML = result+" met";
+        }
+    }
+    function convert(val, donvi) {
+        let result;
+        if (donvi == "met") {
+            result = 3.279 * val;
+            return result;
+        } else if (donvi == "feet") {
+            result = 0.305 * val;
+            return result;
+        }
+    }
+</script>
+</body>
+</html>

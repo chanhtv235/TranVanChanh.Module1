@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task7</title>
+    <script>
+        function changeLocal(a,b) {
+           let temp=a;
+            a=b;
+            b=temp;
+           return  alert("Hai số sau khi đổi chỗ cho nhau là: a= "+a+"  b= "+ b);
+        }
+    </script>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Enter a:"));
+    let b = parseInt(prompt("Enter b:"));
+    alert("Hai số ban đầu là a= "+a+" b= "+ b);
+    changeLocal(a,b);
+</script>
+</body>
+</html>

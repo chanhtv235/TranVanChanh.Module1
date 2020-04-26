@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải Phương Trình Bậc 2</title>
+</head>
+<body>
+    <script>
+    let a =parseInt(prompt("Nhập tham số a #0"));
+    let b =parseInt(prompt("Nhập tham số b"));
+    let c =parseInt(prompt("Nhập tham số c"));
+    let delta=(b*b-4*a*c);
+    let x1=0;
+    let x2=0;
+    let x=0;
+    if (delta>0){
+        x1=(-b+Math.sqrt(delta))/(2*a);
+        x2=(-b-Math.sqrt(delta))/(2*a);
+        x="Phương trình có nghiệm x1=; "+ x1 + " và  x2 = "+x2;
+
+    } else if(delta==0){
+        x="Phương trình có nghiem kép x1=1x="+ (-b/(2*a));
+    } else {
+        x="Phương trình vô nghiệm";
+    }
+    alert(x);
+    </script>
+</body>
+</html>

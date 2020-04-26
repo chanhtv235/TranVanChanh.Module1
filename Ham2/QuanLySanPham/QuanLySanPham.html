@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+
+</head>
+<body >
+    <input type="text" id="nameProductuon" value="">
+    <input type="button" value="Add" onclick="addElement()">
+    <h2>Display All Production</h2>
+    <h3 style="float: left"> Product Name</h3>
+    <h3 style="float: left">&emsp;&emsp;&emsp;quality: </h3>
+    <p id="quality" ></p><br>
+    <p id="hienThi"></p>
+    <script>
+        let arr= ['Iphone'];
+        display(arr);
+        function display(array) {
+            let board="<table  border='1'><tr><td>Name</td><td>Edit</td><td>Delete</td></tr>";
+            let number =0;
+            for (let i=0;i<array.length;i++) {
+                board +="<tr><td STYLE='width: 200px' HEIGHT='30' bgcolor='#add8e6'>"+array[i]+"</td>"
+                        +"<td><input id="+i+" type='button' value='delete' onclick='del(arr,this.id)'></td>"
+                        +"<td><input id="+i+" type='button' value='Edit' onclick='edit(arr,this.id)'></td></tr>";
+                number++;
+            }
+            board +="</table>";
+            document.getElementById("hienThi").innerHTML =board;
+            document.getElementById("quality").innerHTML = number;
+        }
+
+        // /////////////////////////////////////////////////////////////////////////
+        function addElement() {
+            let sp=document.getElementById("nameProductuon").value;
+            if (sp!==''){
+                arr.push(sp);
+                display(arr);
+            }else {
+                alert('Bạn làm ơn nhập tên sản phẩm');
+            }
+        }
+        function edit(array,i) {
+            array[i]=prompt("Edit production name");
+            display(arr);
+        }
+        function del(array,i) {
+            array.splice(i,1);
+            display(array);
+        }
+
+    </script>
+</body>
+</html>

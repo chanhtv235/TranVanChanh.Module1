@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>request5</title>
+</head>
+<body onload="mainMenu()">
+<script>
+    let arrlistCustomer = new Array();
+    function mainMenu() {
+        let select = prompt("" +
+            "1.Add New Customer.\n" +
+            "2.Display Information Customer.\n" +
+            "3.Edit Information Customer.\n" +
+            "4.Delete Customer.\n" +
+            "5.Exit.\n");
+        switch (select) {
+            case "1":
+                addNewCustomer();
+                mainMenu();
+                break;
+            case "2":
+                displayCustomer();
+                mainMenu();
+                break;
+            case "3":
+                editInformationCustomer();
+                mainMenu();
+                break;
+            case "4":
+                deleteCustommer();
+                mainMenu();
+                break;
+            case "5":
+                break;
+            default:
+                mainMenu();
+        }
+    }
+    function addNewCustomer() {
+            let name = prompt("1.Enter Name Customer");
+            let idCard = prompt("2.Enter ID Card Customer ");
+            let birthday = prompt("3.Enter birthday Customer:dd/mm/yyyy");
+            let email = prompt("4.Enter Email Customer");
+            let address = prompt("5.Enter Address Customer");
+            let customerType = prompt("6.Enter Type Customer");
+            let discount = prompt("7.Enter Discount");
+            let serviceNumber = prompt("8.Enter service number");
+            let rentDays = prompt("9.Enter rent Day");
+            let serviceType = prompt("10.Enter Type Service");
+            let roomType = prompt("11.Enter Type room");
+            ////////////////////////////////////////////////////////////////////
+            let total = 0;
+            if (serviceType == "Villa")
+                total = rentDays * 500 * (100 - discount) / 100;
+            else if (serviceType == "House")
+                total = rentDays * 300 * (100 - discount) / 100;
+            else
+                total = rentDays * 100 * (100 - discount) / 100;
+            ///////////////////////////////////////////////////////////////////
+            let customer = [];
+                customer[0] = name;
+                customer[1]=idCard;
+                customer[2]= birthday;
+                customer[3]= email;
+                customer[4]=address;
+                customer[5]=customerType;
+                customer[6]= discount;
+                customer[7]=serviceNumber;
+                customer[8]= rentDays;
+                customer[9]=serviceType;
+                customer[10]= roomType;
+                customer[11]=total;
+            arrlistCustomer.push(customer);
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function displayCustomer() {
+            let str="";
+            for (let i=0;i<arrlistCustomer.length;i++)
+                str += i+1 +".Name: "+arrlistCustomer[i][0]+", IdCard: "+arrlistCustomer[i][1]+"\n"
+            let selection = prompt("Select a Customer that you want show\n"+ str + (arrlistCustomer.length+ 1) + ".Back" );
+
+            if (selection>0&&selection<arrlistCustomer.length+1){
+                dislayInfomationCustomer(selection,arrlistCustomer);
+            }else if (selection==arrlistCustomer.length+1) {
+                mainMenu();
+            }else {
+                alert("You chossed failed");
+                displayCustomer();
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function infomationCustomer(i,arr) {
+
+             let string= "1.Name         : " + arr[i-1][0]  + "\n"+
+                        "2.ID Card      : " + arr[i-1][1] +"\n" +
+                        "3.Birthday     : " + arr[i-1][2] + "\n"+
+                        "4.Email        : " + arr[i-1][3] + "\n"+
+                        "5.Address       : " + arr[i-1][4]+ "\n"+
+                        "6.Type Customer: " + arr[i-1][5]+"\n"+
+                        "7.Discount     : " + arr[i-1][6]+ "\n"+
+                        "8.Acompanning  : " + arr[i-1][7]+ "\n"+
+                        "9.Renting day  : " + arr[i-1][8]+ "\n"+
+                        "10.Type Service : " + arr[i-1][9]+"\n"+
+                        "11.Type Room    : " + arr[i-1][10]+ "\n" +
+                        "12. Total Pay   : " + arr[i-1][11];
+             return string;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function dislayInfomationCustomer(i,arr) {
+            alert(infomationCustomer(i,arr));
+        }
+      // / /////////////////////////////////////////////////////////////////////////////////////////////////////
+    function editInformationCustomer() {
+            let str="";
+            for (let i=0;i<arrlistCustomer.length;i++)
+                str += i+1 +".Name: "+arrlistCustomer[i][0]+", IdCard: "+arrlistCustomer[i][1]+"\n"
+            let select1 = prompt("Select a Customer that you want Edit \n"+ str + (arrlistCustomer.length+ 1) + ".Back" );
+
+            if (select1>0&&select1<=arrlistCustomer.length){
+                let select2= prompt("Select a property that you want to edit"+infomationCustomer(select1,arrlistCustomer));
+                switch (select2) {
+                    case "1":name=prompt("Edit Name of Custommer");
+                            arrlistCustomer[select1-1][0]=name;
+                        break;
+                    case "2":idCard=prompt("Edit ID Card of Custommer");
+                            arrlistCustomer[select1-1][1]=idCard;
+                        break;
+                    case "3":birthDay=prompt("Edit Birthday of Custommer");
+                            arrlistCustomer[select1-1][2]=birthDay;
+                        break;
+                    case "4":email=prompt("Edit Email of Custommer ");
+                            arrlistCustomer[select1-1][3]=email;
+                        break;
+                    case "5":address=prompt("Edit Address of Custommer ");
+                            arrlistCustomer[select1-1][4]=address;
+                        break;
+                    case "6":typeCustomer=prompt("Edit Customer of Custommer");
+                            arrlistCustomer[select1-1][5]=typeCustomer;
+                        break;
+                    case "7":discount=prompt("Edit Discount of Custommer");
+                            arrlistCustomer[select1-1][6]=discount;
+                        break;
+                    case "8":accompanying=prompt("Edit accompanying of Custommer");
+                            arrlistCustomer[select1-1][7]=accompanying;
+                        break;
+                    case "9":rentDays=prompt("Edit renting day of Custommer");
+                            arrlistCustomer[select1-1][8]=rentDays;
+                        break;
+                    case "10":typeService=prompt("Edit Type Service of Custommer");
+                            arrlistCustomer[select1-1][9]=typeService;
+                        break;
+                    case "11":typeRoom=prompt("Edit Room");
+                            arrlistCustomer[select1-1][10]=typeRoom;
+                        break;
+                    default:
+                        editInformationCustomer();
+                }
+                mainMenu();
+            }else if (select1==arrlistCustomer.length+1) {  //////////////////tao cho select BACK
+                mainMenu();
+            }else {
+                alert("You chossed failed");
+                editInformationCustomer();
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function deleteCustommer() {
+            let str="";
+            for (let i=0;i<arrlistCustomer.length;i++)
+                str += i+1 +".Name: "+arrlistCustomer[i][0]+", IdCard: "+arrlistCustomer[i][1]+"\n"
+            let select1 = prompt("Select a Customer that you want to delete:\n"+ str + (arrlistCustomer.length+ 1) + ".Back" );
+            if (select1>0&&select1<=arrlistCustomer.length){
+                let select2=prompt("Do you want to delete Customer"+arrlistCustomer[select1-1][0]+"\n1.YES\n2.NO");
+               ////"
+                if (select2==1){
+                    arrlistCustomer.splice((select1-1),1);
+                    mainMenu();
+                }else if (select2==2) {
+                    mainMenu();
+                }else{
+                    alert("You do not Confirm.Please try again.");
+                    deleteCustommer();
+                }
+            }else if (select1==((arrlistCustomer.length+1))) {
+                mainMenu();
+            }else{
+                alert("You chossed failed")
+                mainMenu();
+            }
+
+        }
+</script>
+
+</body>
+</html>

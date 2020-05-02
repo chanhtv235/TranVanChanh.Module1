@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information Of Customer</title>
+</head>
+<body>
+<script>
+    // Task1 Nhập dữ liệu
+    let name="Trần Văn Chánh";
+    let idCard=123456789;
+    let birthday="11/03/1994";
+    let email = "chanhtv235@gmail.com";
+    let address="Đà Nẵng";
+    let customerType="Diamond";
+    let discount=10;
+    let serviceNumber=2;
+    let rentDays=10;
+    let serviceType="Business";
+    let roomType="House";
+    let totalPay=0;
+
+    function total_discout(birthDay,address,typeCustomer,rentDays) {
+        let currentYear = new Date().getFullYear();
+        let birthday = new Date(birthDay).getFullYear();
+        let ageCustomer = currentYear - birthday;
+        let totalDiscount=0;                              ////Tính toatalDiscount theo phương án cộng dồn.
+        if (address=="Đà Nẵng"){                         ///Giảm giá theo address
+            totalDiscount=20;
+            /////////////////////////////Giảm giá  theo , age có phụ thuộc vào Đà Nẵng.
+            if(ageCustomer>=30){
+                totalDiscount +=2;
+            }else if(ageCustomer>=20){
+                totalDiscount +=1;
+            }else {
+                totalDiscount +=0;
+            }
+            ///////////////////////////// Giảm giá theo rent day.
+            if (rentDays>=7){
+                totalDiscount+=30;
+            } else if (rentDays>=5){
+                totalDiscount+=30;
+            }else if (rentDays>=2){
+                totalDiscount += 10;
+            } else {
+                totalDiscount +=0;
+            }
+
+        }else if (address=="Huế"){
+            totalDiscount=10;
+            if (rentDays>=7){
+                totalDiscount+=30;
+            } else if (rentDays>=5){
+                totalDiscount+=30;
+            }else if (rentDays>=2){
+                totalDiscount += 10;
+            } else {
+                totalDiscount +=0;
+            }
+
+        } else if (address="Quảng Nam") {
+            totalDiscount=5;
+            if (rentDays>=7){
+                totalDiscount+=30;
+            } else if (rentDays>=5){
+                totalDiscount+=30;
+            }else if (rentDays>=2){
+                totalDiscount += 10;
+            } else {
+                totalDiscount +=0;
+            }
+
+        }else {
+            totalDiscount=0;
+            if (rentDays>=7){
+                totalDiscount+=30;
+            } else if (rentDays>=5){
+                totalDiscount+=30;
+            }else if (rentDays>=2){
+                totalDiscount += 10;
+            } else {
+                totalDiscount +=0;
+            }
+        }
+        ////////////////////////////////////////// giảm giá theo typeCustome,
+        if(typeCustomer=="Diamond"){
+            totalDiscount +=15;
+        }else if (typeCustomer=="Platium") {
+            totalDiscount +=10;
+        }else if(typeCustomer=="Gold"){
+            totalDiscount +=5;
+        }else if(typeCustomer=="Silver"){
+            totalDiscount +=2;
+        }else {
+            totalDiscount +=0;
+        }
+
+    return totalDiscount;
+
+    }
+   ////////////////////////////////////////////////////////////////////////
+   //    function totalPay() {
+   //
+   //
+   //    }
+     function infoCustommer(){
+        let str= "Info of Custommer\n"+
+             "1.Name         : " + name  + "\n"+
+             "2.ID Card      : " + idCard +"\n" +
+             "3.Birthday     : " + birthday + "\n"+
+             "4.Email        : " + email+   "\n"+
+             "5.Address       : " + address+ "\n"+
+             "6.Type Customer: " + customerType+"\n"+
+             "7.Discount     : " + discount+ "\n"+
+             "8.Acompanning  : " + serviceNumber+ "\n"+
+             "9.Renting day  : " + rentDays+ "\n"+
+             "10.Type Service : " + serviceType+"\n"+
+             "11.Type Room    : " + roomType+ "\n";
+         return str;
+     }
+
+     let menu=prompt(".1.Show Information Customer.\n"
+                    +"2.Edit Information Customer.\n"
+                    +"3.Show the amount to be paid after discount");
+    switch (menu) {
+          case "1": alert(infoCustommer());
+              break;
+          case "2": let i=prompt(infoCustommer());
+                    switch (i) {
+                        case "1":name=prompt("Edit Name of Custommer");
+                            break;
+                        case "2":idCard=prompt("Edit ID Card of Custommer");
+                            break;
+                        case "3":birthday=prompt("Edit Birthday of Custommer");
+                            break;
+                        case "4":email=prompt("Edit Email of Custommer ");
+                            break;
+                        case "5":address=prompt("Edit Address of Custommer ");
+                            break;
+                        case "6":customerType=prompt("Edit Customer of Custommer");
+                            break;
+                        case "7":discount=prompt("Edit Discount of Custommer");
+                            break;
+                        case "8":serviceNumber=prompt("Edit accompanying of Custommer");
+                            break;
+                        case "9":rentDays=prompt("Edit renting day of Custommer");
+                            break;
+                        case "10":serviceType=prompt("Edit Type Service of Custommer");
+                            break;
+                        case "11":roomType=prompt("Edit Room");
+                            break;
+                        default:
+                            alert("Failed");
+                    }
+                    alert(infoCustommer());
+                    break;
+        case "3":
+            if (roomType=="Villa") {
+                totalPay=500*rentDays*(1-discount/100)-total_discout(birthday,address,customerType,rentDays);
+
+            }else if (roomType=="House")  {
+                totalPay=300*rentDays*(1-discount/100)-total_discout(birthday,address,customerType,rentDays);
+            }else {
+                totalPay=100*rentDays*(1-discount/100)-total_discout(birthday,address,customerType,rentDays);
+            }
+            alert(totalPay);
+            break;
+            default:
+                    alert("Failed");
+
+      }
+
+
+</script>
+</body>
+</html>

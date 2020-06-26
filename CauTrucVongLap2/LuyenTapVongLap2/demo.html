@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="hinh3"></p>
+<script>
+    let side= parseInt(prompt("Nhập vào kích thước hình cần in ra:"));
+    let hinh ="";
+    for (let i=0;i<=side;i++){
+        for (let k=0;k<=side;k++){
+            if (k<side-i){
+                hinh +="  ";
+            }else {
+                hinh +="* ";
+            }
+        }
+        hinh +="<br/>";
+    }
+    document.getElementById("hinh3").innerHTML="<pre>"+hinh+"<pre/>";
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="NhanVien.js"></script>
+</head>
+<body>
+<script>
+    let danhSachNhanVien = [];
+    menu();
+
+    function getThongTinDanhSachNhanVien() {
+        let chuoiThongTin = "";
+        for (let i = 0; i < danhSachNhanVien.length; i++) {
+            chuoiThongTin += ((i + 1) + ". Tên: " + danhSachNhanVien[i].getTen() + " - Ngày sinh: " + danhSachNhanVien[i].getNgaySinh() +
+                " - Địa chỉ: " + danhSachNhanVien[i].getDiaChi() + " - Lương: " + danhSachNhanVien[i].getLuong() + " - Chức vụ: " + danhSachNhanVien[i].getChucVu() + "\n");
+        }
+        return chuoiThongTin;
+    }
+
+    function hienThiDanSachNV() {
+        if (getThongTinDanhSachNhanVien() === "") {
+            alert("Danh sách không có nhân viên nào\n")
+        } else
+            alert("Danh sách nhân viên\n" + getThongTinDanhSachNhanVien());
+    }
+
+    function themNV() {
+        let ten = prompt("Nhập tên nhân viên");
+        let ngaySinh = prompt("Nhập ngày sinh nhân viên");
+        let diaChi = prompt("Nhập địa chỉ nhân viên");
+        let luong = prompt("Nhập lương nhân viên");
+        let chucVu = prompt("Nhập chức vụ nhân viên");
+        let nhanVien = new NhanVien(ten, ngaySinh, diaChi, luong, chucVu);
+        danhSachNhanVien.push(nhanVien);
+    }
+
+    function xoaNV() {
+        let choose = parseInt(prompt("Chọn nhân viên bạn muốn xóa\n" +
+            getThongTinDanhSachNhanVien()));
+        if (choose <= danhSachNhanVien.length) {
+            let xacNhanXoa = confirm("Bạn có muốn xóa nhân viên " + danhSachNhanVien[choose - 1].getTen() + "không?");
+            if (xacNhanXoa) {
+                danhSachNhanVien.splice(choose - 1, 1);
+                hienThiDanSachNV();
+            }
+        } else {
+            alert("Bạn chọn chưa đúng");
+            xoaNV();
+            hienThiDanSachNV();
+        }
+    }
+
+    function suaThongTinNV() {
+        let choose1 = parseInt(prompt("Chọn nhân viên bạn muốn chỉnh sửa\n" +
+            getThongTinDanhSachNhanVien()));
+        if (choose1>0&&choose1 <= danhSachNhanVien.length) {
+            let choose2 = parseInt(prompt("Chọn thông tin cần chỉnh sửa \n"+danhSachNhanVien[choose1 - 1].toString()));
+            if (choose2>0&&choose2<=5){
+                switch (choose2) {
+                    case 1:
+                        danhSachNhanVien[choose1 - 1].setTen(prompt("Nhập lại tên mới"));
+                        break;
+                    case 2:
+                        danhSachNhanVien[choose1 - 1].setNgaySinh(prompt("Nhập lại ngày sinh mới"));
+                        break;
+                    case 3:
+                        danhSachNhanVien[choose1 - 1].setDiaChi(prompt("Nhập lại địa chỉ mới"));
+                        break;
+                    case 4:
+                        danhSachNhanVien[choose1 - 1].setLuong(parseInt(prompt("Nhập lại lương mới")));
+                        break;
+                    case 5:
+                        danhSachNhanVien[choose1 - 1].setChuVu(prompt("Nhập lại chức vụ mới"));
+                        break;
+                    default:
+                        alert("bạn đã chọn sai");
+                        suaThongTinNV();
+                }
+
+            }else {
+                alert("Bạn đã chọn sai. Chọn lại nhé");
+                suaThongTinNV();
+            }
+
+        }else {
+            alert("Bạn đã chọn nhân viên không có trong danh sách. Chọn lại nhé")
+            suaThongTinNV();
+        }
+    }
+
+    function menu() {
+        let choose = parseInt(prompt("1.Thêm Nhân Viên" +
+            "\n2.Hiện thị danh sách nhân viên" +
+            "\n3.Xóa nhân viên" +
+            "\n4.Sửa thông tin nhân viên" +
+            "\n5.Thoát Chương trình"));
+        switch (choose) {
+            case 1:
+                themNV();
+                menu();
+                break;
+            case 2:
+                hienThiDanSachNV();
+                menu();
+                break;
+
+            case 3:
+                xoaNV();
+                menu();
+                break;
+            case 4:
+                suaThongTinNV();
+                menu();
+                break;
+            case 5:
+                alert("Chương trình thoát");
+                break;
+            default:
+                alert("Bạn chọn sai!! Chọn lại");
+                menu();
+        }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>play caro game</title>
+</head>
+<body>
+<p id="ketQua"></p>
+<script>
+    let checkPlay1 = true;
+    let array = new Array(10);
+    for (let i = 0; i < 10; i++) {
+        array[i] = new Array(10)
+        for (let j = 0; j < 10; j++) {
+            array[i][j] = "";
+        }
+    }
+    display();
+    function display() {
+        let tableString = "<table border=\"1\">"
+        for (let i = 0; i < 10; i++) {
+            tableString += " <tr>";
+            for (let j = 0; j < 10; j++) {
+                tableString += "<td style=\"height: 25px; width: 25px\" onclick='play(" + i + "," + j + ")'>" + array[i][j] + "</td>"
+            }
+            tableString += " </tr>"
+        }
+        tableString += "</table>";
+        document.getElementById("ketQua").innerHTML = tableString;
+    }
+
+    function play(i, j) {
+        if (checkPlay1 && !checkValue(i, j)) {
+            array[i][j] = "X";
+            checkPlay1 = false;
+            display();
+           setTimeout(checkWin1,100)
+        } else if (!checkPlay1 && !checkValue(i, j)) {
+            array[i][j] = "O";
+            checkPlay1 = true;
+            display();
+            setTimeout()
+            if (checkWin2()){
+                alert("người chơi số 2 chiến thăng")
+            }
+        }
+    }
+
+    function checkValue(i, j) {
+        if (array[i][j] === "X" || array[i][j] === "O") {
+            // alert("ô này đã chọn rồi bạn ơi!!!")
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    function checkWin1() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if(array[i][j]==="X"){
+                    if (array[i][j+1]==="X"&&array[i][j+2]==="X"){
+                        alert("chien thang");
+                    }
+                    if (array[i+1][j]==="X"&&array[i+2][j]==="X"){
+                        alert("chien thang");
+                    }
+                    if (array[i+1][j+1]==="X"&&array[i+2][j+2]==="X"){
+                        alert("chien thang");
+                    }
+                    if (array[i-1][j-1]==="X"&&array[i-2][j-2]==="X"){
+                        alert("chien thang");
+                    }
+                }
+            }
+        }
+
+    }
+    function checkWin2() {
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if(array[i][j]==="O"){
+                    if (array[i][j+1]==="O"&&array[i][j+2]==="O"){
+                        return true;
+                    }
+                    if (array[i+1][j]==="O"&&array[i+2][j]==="O"){
+                        return true;
+                    }
+                    if (array[i+1][j+1]==="O"&&array[i+2][j+2]==="O"){
+                        return true;
+                    }
+                    if (array[i-1][j-1]==="O"&&array[i-2][j-2]==="O"){
+                        return true;
+                    }
+                }
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

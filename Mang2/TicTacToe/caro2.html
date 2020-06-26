@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>caro</title>
+</head>
+<body>
+<p id="hienThi"></p>
+<script>
+    let checkPlayer1 = true;
+    let array = new Array(10);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = new Array(10);
+        for (let j = 0; j < array[i].length; j++) {
+            array[i][j] = ' '
+        }
+    }
+    display();
+
+    function display()    {
+        let tableString = '<table border="1">';
+        for (let i = 0; i < 10; i++) {
+            tableString += '<tr>';
+            for (let j = 0; j < 10; j++) {
+                tableString += '<td style="height: 20px; width: 20px" onclick="play(' + i + ',' + j + ')">' + array[i][j] + '</td>';
+            }
+            tableString += '</tr>'
+        }
+        tableString += '</table>'
+        document.getElementById('hienThi').innerHTML = tableString;
+
+    }
+
+    function checkPlayed(x, y) {
+        if (array[x][y] === 'X' || array[x][y] === 'O') {
+            alert('O nay da chon. Ban chon lai!!!!')
+            return false
+        }
+        return true;
+    }
+
+    function play(x, y) {
+        if (checkPlayer1 && checkPlayed(x, y)) {
+            array[x][y] = 'X';
+            checkPlayer1 = false;
+            if (checkChienThang1()) {
+                alert("nguoi choi 1 chien thang")
+            }
+        } else if (!checkPlayer1 && checkPlayed(x, y)) {
+            array[x][y] = 'O';
+            checkPlayer1 = true;
+            if (checkChienThang2()) {
+                alert("nguoi choi 2 chien thang")
+            }
+        }
+        display();
+    }
+
+    function checkChienThang1() {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j] === 'X') {
+                    if (array[i][j + 1] === 'X' && array[i][j + 2] === 'X') {
+                        return true;
+                    }
+                    if (array[i + 1][j] === 'X' && array[i + 2][j] === 'X') {
+                        return true;
+                    }
+                    if (array[i + 1][j + 1] === 'X' && array[i + 2][j + 2] === 'X') {
+                        return true;
+                    }
+                    if (array[i + 1][j - 1] === 'X' && array[i + 2][j - 2] === 'X') {
+                        return true;
+                    }
+                }
+            }
+        }
+
+    }
+    function checkChienThang2() {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j] === 'O') {
+                    if (array[i][j + 1] === 'O' && array[i][j + 2] === 'O') {
+                        return true;
+                    }
+                    if (array[i + 1][j] === 'O' && array[i + 2][j] === 'O') {
+                        return true;
+                    }
+                    if (array[i + 1][j + 1] === 'O' && array[i + 2][j + 2] === 'O') {
+                        return true;
+                    }
+                    if (array[i + 1][j - 1] === 'O' && array[i + 2][j - 2] === 'O') {
+                        return true;
+                    }
+                }
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

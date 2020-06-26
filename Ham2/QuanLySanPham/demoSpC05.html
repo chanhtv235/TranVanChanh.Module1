@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="tenSanPham" value="">
+<input type="button" value="Add" onclick="themSanPham()">
+<p id="display"></p>
+<script>
+    let listSanPham =['Sam Sung','NoKia','Iphone','GL'];
+    hienThi();
+    function hienThi() {
+        let tableString ='<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>Số thứ tự</th>\n' +
+            '        <th> Tên Sản phẩm</th>\n' +
+            '        <th> Sửa</th>\n' +
+            '        <th> Xóa</th>\n' +
+            '    </tr>';
+        for (let i=0; i<listSanPham.length;i++){
+            tableString+=' <tr>\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>'+ listSanPham[i]+'</td>\n' +
+                '        <td> <input type="button" value="Sửa" onclick="sua('+i+')"></td>\n' +
+                '        <td> <input type="button" value="Xóa"onclick="xoa('+i+')"></td>\n' +
+                '    </tr>';
+        }
+        document.getElementById("display").innerHTML=tableString;
+    }
+    function themSanPham() {
+        let tenSanPham=document.getElementById("tenSanPham").value;
+        let kiemTraSP=false;
+        for (let i=0;i<listSanPham.length;i++){
+            if (listSanPham[i]===tenSanPham){
+                kiemTraSP =true;
+                alert("Sản phẩm đã có trong danh sách");
+                break;
+            }
+        }
+        if (!kiemTraSP){
+            listSanPham.push(tenSanPham);
+        }
+        hienThi();
+    }
+    function sua(id) {
+        let tenSanPhamMoi=prompt('Nhập tên sản phẩm mới');
+        if (tenSanPhamMoi==''){
+           alert("Bạn phải điền thông tin sản phẩm")
+        }else if (tenSanPhamMoi==null) {
+            alert("bạn ko muốn sửa")
+        }else {
+            listSanPham[id]=tenSanPhamMoi;
+        }
+        hienThi();
+    }
+    function xoa(id) {
+       let xacNhanXoa=confirm("Bạn có muốn xóa sản phẩm "+ listSanPham[id]+ "không?")
+        if (xacNhanXoa){
+            listSanPham.splice(id,1);
+        }
+        hienThi();
+    }
+</script>
+</body>
+</html>

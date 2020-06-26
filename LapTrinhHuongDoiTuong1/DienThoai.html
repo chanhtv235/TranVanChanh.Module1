@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DemoDienThoai</title>
+</head>
+<body>
+<script>
+    class DienThoai{
+        constructor(status,tenDT) {
+            this.tenDT=tenDT;
+            this.status=status;
+            this.pin=100;
+            this.tinSoan=[];
+            this.tinDi=[];
+            this.tinDen=[];
+        }
+        kiemTraTrangThai(){
+            if (this.status==="ON"){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        batTat(){
+            if (this.kiemTraTrangThai()){
+                this.status==="OFF";
+            }else {
+                this.status==="ON";
+            }
+        }
+        sacPin(){
+            while (this.pin<100){
+                this.pin++;
+            }
+        }
+        soanTN(){
+            if (this.pin>10){
+                let tinNhanSoan =prompt(this.tenDT+ " :Soạn tin nhắn");
+                this.tinSoan.push(tinNhanSoan);
+                this.pin--;
+            }else {
+                alert("điện thoại sắp hết pin.Bạn vui lòng sạc pin")
+                this.sacPin();
+            }
+
+        }
+        xemTinDaGui(){
+            alert(this.tenDT+ "." +this.tinDi);
+        }
+
+        guiTinNhan(dienThoai){
+            for (let i=0;i<this.tinSoan.length;i++){
+                dienThoai.tinDen.push((this.tenDT)+(1+i)+"."+ this.tinSoan[i]+"\n");
+                this.tinDi.push(this.tinSoan[i]);
+            }
+            this.pin--
+        }
+        xemTinNhan(){
+            alert(this.tinDen)
+        }
+    }
+    let nokia =new DienThoai("ON","Nokia");
+    let samSung =new DienThoai("ON","SamSung");
+    let iphone =new DienThoai("ON","Iphone");
+    nokia.soanTN();
+    nokia.soanTN();
+    iphone.soanTN();
+    iphone.guiTinNhan(samSung);
+    nokia.guiTinNhan(samSung);
+    samSung.xemTinNhan();
+    iphone.xemTinDaGui();
+
+</script>
+</body>
+</html>

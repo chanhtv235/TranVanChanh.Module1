@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan lý sản phẩm</title>
+</head>
+<body>
+<h2> THÊM SẢN PHẨM</h2>
+<div>
+    <input type="text" id="sanPham">
+    <button type="button" style="background: green" onclick="themSanPham()">Thêm</button>
+</div>
+<p style="float: left"> Số lượng sản phẩm</p>
+<p id="soluong" style="margin-left: 300px"></p>
+<h2>Tất cả sản phẩm</h2>
+<p id="hienThi"></p>
+<script>
+    let danhSachSP=['Iphone','Nokia','SamSung'];
+    hienThiSanPham();
+    function hienThiSanPham() {
+        let stringTable='<table border="1">\n' +
+            '<tr style="background: #098049">\n' +
+                '<th style="height: 20px;width: 200px">Tên sản phẩm</th>\n' +
+                '<th style="height: 20px;width: 50px">Sửa</th>\n' +
+                '<th style="height: 20px;width: 50px">Xóa</th>\n' +
+            ' </tr>';
+        for (let i=0;i<danhSachSP.length;i++){
+            stringTable+=' <tr>\n' +
+                                '<td style="height: 20px;width: 200px">'+danhSachSP[i]+'</td>\n' +
+                                '<td style="height: 20px;width: 50px;"><button type="button" style="background: orange" onclick="suaSanPham('+i+')">Sửa</button></td>\n' +
+                                '<td style="height: 20px;width: 50px"><button type="button" style="background: red;" onclick="xoaSanPham('+i+')">Xóa</button></td>\n' +
+                                '    </tr>'
+        }
+        document.getElementById('hienThi').innerHTML=stringTable;
+        document.getElementById('soluong').innerText=danhSachSP.length;
+    }
+   function themSanPham() {
+        let tenSanPham= document.getElementById('sanPham').value;
+        if (tenSanPham!==''){
+            danhSachSP.push(tenSanPham);
+        }else {
+            alert('Bạn vui lòng nhập tên sản phẩm')
+        }
+       hienThiSanPham();
+
+   }
+   function suaSanPham(i) {
+       for (let j=0;j<danhSachSP.length;j++){
+           if (i==j){
+               let tenMoi=prompt("Sửa lại tên của sản phẩm:");
+               if (tenMoi==null||tenMoi==''){
+                   alert('Bạn chưa chỉnh sửa tên sản phẩm!!!')
+               }else {
+                   danhSachSP[j]=tenMoi;
+               }
+           }
+       }
+       hienThiSanPham();
+   }
+   function xoaSanPham(i) {
+       danhSachSP.splice(i,1);
+       hienThiSanPham();
+   }
+</script>
+</body>
+</html>

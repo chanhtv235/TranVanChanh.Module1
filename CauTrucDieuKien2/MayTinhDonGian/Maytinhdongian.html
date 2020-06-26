@@ -81,7 +81,7 @@
             document.getElementById("windown").value =document.getElementById("windown").value+"-";
         }
         function mul() {
-            document.getElementById("windown").value =document.getElementById("windown").value+"x";
+            document.getElementById("windown").value =document.getElementById("windown").value+"*";
         }
 
         function equ() {
@@ -94,34 +94,7 @@
             let indexDiv= string.indexOf("/");
             let height= string.length;                               // Tính độ dài của chuỗi
             let result;
-            if(indexAdd !=-1){
-                let firstNumber=string.substr(0,indexAdd);         // lấy số thứ nhất
-                let secondNumber=string.substr(indexAdd+1,height);  // lấy số thứ hai
-                firstNumber=parseInt(firstNumber);
-                secondNumber=parseInt(secondNumber);
-                result=firstNumber + secondNumber;
-            }else if (indexSub !=-1){
-                let firstNumber=string.substr(0,indexSub);
-                let secondNumber=string.substr(indexSub+1,height);
-                firstNumber=parseInt(firstNumber);
-                secondNumber=parseInt(secondNumber);
-                result=firstNumber - secondNumber;
-            } else if (indexMul !=-1) {
-                let firstNumber=string.substr(0,indexMul);
-                let secondNumber=string.substr(indexMul+1,height);
-                firstNumber=parseInt(firstNumber);
-                secondNumber=parseInt(secondNumber);
-                result=firstNumber * secondNumber;
-            }else if(indexDiv !=-1) {
-                let firstNumber=string.substr(0,indexDiv);
-                let secondNumber=string.substr(indexDiv+1,height);
-                firstNumber=parseInt(firstNumber);
-                secondNumber=parseInt(secondNumber);
-                result=firstNumber / secondNumber;
-             }else {
-                result="Nhập lại phép tính";
-            }
-
+            result=eval(string);
            document.getElementById("windown").value =result;
          }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<body>
+<h1>20 số nguyên tố đầu tiên</h1>
+<script>
+    let K=20;
+    let count=0;
+    let n=2;
+    while (count<K){
+        // Biến cờ hiệu
+        let flag = true;
+        for (let i = 2; i < Math.sqrt(n); i+=2) {
+            if (n % i == 0){
+                flag = false;
+                break;
+            }
+        }
+        if (flag == true) {
+            document.write(n+ "<br/>");
+            count ++
+        }
+        n ++;
+    }
+</script>
+</body>
+</html>

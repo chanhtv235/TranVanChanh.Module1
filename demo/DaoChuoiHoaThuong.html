@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   let a="Afs";
+   let b="";
+    for (let i=0;i<a.length;i++){
+        let b =a.charAt(i).charCodeAt();
+        let check =(a.charAt(i).charCodeAt())>=65&&(a.charAt(i).charCodeAt())<=90;
+        alert(check)
+        if ((a.charAt(i).charCodeAt())>=65&&(a.charAt(i).charCodeAt())<=90){
+            b+= a.charAt(i).toLowerCase()
+            alert(b)
+        }else {
+            b+= a.charAt(i).toUpperCase();
+        }
+    }
+    alert(b)
+</script>
+</body>
+</html>

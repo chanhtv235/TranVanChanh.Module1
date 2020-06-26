@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ưng dụng máy tính</title>
+</head>
+<body>
+
+<form>
+    <input type="text" id="number1">
+    <input type=" text" id="number2"> <br/><br/>
+    <input type="button" value="+" onclick="tinh('+');">
+    <input type="button" value="Subtraction(-)" onclick="tinh('-')">
+    <input type="button" value="Multiplication(*)" onclick="tinh('*')">
+    <input type="button" value="Division" onclick="tinh('/')">
+<form/>
+    <p id="hien_thi"></p>
+
+    <script>
+        function tinh(pheptinh) {
+
+            let fistNumber = document.getElementById("number1").value;
+            let secondNumber = document.getElementById("number2").value;
+            fistNumber = parseInt(fistNumber);
+            secondNumber = parseInt(secondNumber);
+            let result;
+            if(pheptinh=='+'){
+                result = fistNumber + secondNumber;
+                document.getElementById("hien_thi").innerHTML =result;
+            }else if (pheptinh=='-'){
+                result = fistNumber - secondNumber;
+                document.getElementById("hien_thi").innerHTML = result;
+            }else if(pheptinh=='*'){
+                result = fistNumber * secondNumber;
+                document.getElementById("hien_thi").innerHTML = result;
+            }else if (pheptinh == "/"){
+                result = fistNumber/secondNumber;
+                document.getElementById("hien_thi").innerHTML = result;
+            }
+        }
+        // function addtion() {
+        //     let fistNumber = document.getElementById("number1").value;
+        //     let secondNumber = document.getElementById("number2").value;
+        //     fistNumber = parseInt(fistNumber);
+        //     secondNumber = parseInt(secondNumber);
+        //     let result = fistNumber + secondNumber;
+        //     document.getElementById("hien_thi").innerHTML = result;
+        //
+        // }
+        //
+        // function subtraction() {
+        //     let fistNumber = document.getElementById("number1").value;
+        //     let secondNumber = document.getElementById("number2").value;
+        //     fistNumber = parseInt(fistNumber);
+        //     secondNumber = parseInt(secondNumber);
+        //     let result = fistNumber - secondNumber;
+        //     document.getElementById("hien_thi").innerHTML = result;
+        // }
+        //
+        // function multiplication() {
+        //     let fistNumber = document.getElementById("number1").value;
+        //     let secondNumber = document.getElementById("number2").value;
+        //     fistNumber = parseInt(fistNumber);
+        //     secondNumber = parseInt(secondNumber);
+        //     let result = fistNumber * secondNumber;
+        //     document.getElementById("hien_thi").innerHTML = result;
+        // }
+        //
+        // function division() {
+        //     let fistNumber = document.getElementById("number1").value;
+        //     let secondNumber = document.getElementById("number2").value;
+        //     fistNumber = parseInt(fistNumber);
+        //     secondNumber = parseInt(secondNumber);
+        //     let result = fistNumber / secondNumber;
+        //     document.getElementById("hien_thi").innerHTML = result;
+        // }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class DienThoai{
+        constructor(trangThai,pin) {
+            this.pin= pin;
+            this.tinSoanThao='';
+            this.tinDaGui='';
+            this.tinNhan= '';
+            this.trangThai= trangThai;
+        }
+        kiemtraNguon(){
+            if (this.nguon=="ON"){
+                return true
+            }else {
+                return false
+            }
+        }
+        batTat(trangThai){
+            this.trangThai=trangThai;
+        }
+        sacPin(){
+            this.pin=100;
+        }
+        soanTin(tinNhan){
+                this.tinSoanThao=tinNhan
+                this.pin--;
+        }
+        nhanTin(dienthoai){
+            this.tinNhan=dienthoai.tinDaGui;
+            this.pin--;
+        }
+        guiTin(dienThoai){
+            this.tinDaGui=this.tinSoanThao;
+            dienThoai.tinNhan=this.tinDaGui;
+            this.pin--;
+        }
+        xemTin(){
+            this.pin--;
+            return this.tinNhan;
+        }
+        xemTinDaGui(){
+            this.pin--;
+            return this.tinDaGui;
+        }
+
+    }
+    let iphone =new DienThoai("ON",15);
+    let nokia =new DienThoai("ON",100);
+    iphone.batTat("OFF");
+    let n=1;
+    while (n<4){
+        if (iphone.kiemtraNguon()){
+            alert('Vui lòng bật nguồn cho iphone')
+            iphone.batTat('ON')
+        }
+        if (iphone.pin<10){
+            alert('iphone sắp hết pin. Vui lòng sạc pin')
+            iphone.sacPin();
+        }
+        iphone.soanTin(prompt('Iphone Hay soạn Tin Nhan'));
+        iphone.guiTin(nokia);
+        alert("Tin nhan cua nokia"+ nokia.xemTin());
+        alert('iphone'+iphone.pin)
+        alert('nokia'+nokia.pin)
+        nokia.soanTin(prompt('Nokia Hay soạn Tin Nhan'));
+        nokia.guiTin(iphone);
+        alert("tin nhan của iphone"+iphone.xemTin());
+        alert('iphone'+iphone.pin);
+        alert('nokia'+nokia.pin)
+    }
+
+</script>
+</body>
+</html>

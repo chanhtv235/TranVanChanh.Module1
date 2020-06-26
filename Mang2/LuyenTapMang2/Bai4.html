@@ -6,15 +6,16 @@
 </head>
 <body>
 <script>
-    let array = [1,'a',3,'b',5,'c',7,'d',9,5];
-    let n = array.length;
+
+    let string = prompt("Nhap vao mot chuoi");
+    let n = string.length;
     let count=0;
     for(let i =0; i<n; i++){
-        if (typeof array[i]=='string'){
+        if (string[i]===' '){
             count++;
         }
     }
-    alert(count);
+    alert('So tu trong chuoi la:'+(count+1));
 </script>
 </body>
 </html>

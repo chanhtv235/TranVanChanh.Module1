@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array= new Array(10);
+    let count =0;
+    while (count<array.length){
+        array[count]=prompt("Nhap vao phan tu thu :"+ count);
+        count++
+    }
+    alert(array);
+    let findNumber = prompt("Nhap vao so can tim");
+    for (let i=0; i<array.length;i++){
+        if(findNumber===array[i]){
+            for (;i<array.length;i++){
+                array[i]=array[i+1];
+            }
+        }
+    }
+    alert(array)
+</script>
+</body>
+</html>

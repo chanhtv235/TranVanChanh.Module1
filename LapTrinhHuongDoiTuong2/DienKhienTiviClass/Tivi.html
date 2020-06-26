@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="hinhTV.jpg" id="tivi" style="height: 450px;width: 600px">
+<input type="button" value="On/Off" onclick="turnOnOff()" style="width: 40px; height: 40px">
+<fieldset >
+    <div style="width: 250px">
+        <input type="button" value="1" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="2" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="3" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="4" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="5" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="6" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="7" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="8" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="9" onclick="change(this.value);" style="width: 40px; height: 40px">
+        <input type="button" value="10" onclick="change(this.value);" style="width: 40px; height: 40px">
+    </div>
+    <div>
+        <input type="button" value="+" onclick="upDownChannel(this.value);" style="width: 40px; height: 40px">
+        Channel
+        <input type="button" value="-" onclick="upDownChannel(this.value);" style="width: 40px; height: 40px">
+    </div>
+</fieldset>
+<script>
+    // Tiv=====================================
+    // Có thuộc tính mô tả kênh hiện thời đang phát.
+    // Có thuộc tính mô tả âm lượng hiện thời
+    // Có thuộc tính mô tả trạng thái bật, tắt.
+    // Có tính năng điều khiển chuyển đến kênh nào đó.
+    // Có tính năng điều khiển âm lượng.
+    // remote======================================
+    // Có thuộc tính mã.
+    // Có tính năng điều khiển chuyển kênh.
+    // Có tính năng điều khiển âm lượng.
+    class Remote {
+
+        constructor(tivi) {
+            this.code = 0;
+            this.tivi = tivi;
+        }
+        turnOnOff(){
+            this.tivi.turnOnOff();
+        }
+        upDownChannel(flag) {
+            this.tivi.upDownChannelTV(flag)
+        }
+        upDownVolume(flag) {
+            this.tivi.upDownVolumeTV(flag)
+        }
+
+        setChannelRemote(code) {
+            this.code = code;
+            this.tivi.setChannel(this.code)
+        }
+
+        setVolumeRemote(code) {
+            this.code = code;
+            this.tivi.setVolumeTV(this.code)
+        }
+    }
+
+    class Tivi {
+        constructor() {
+            this.status = false;
+            this.channel = 0;
+            this.volume = 0;
+        }
+        turnOnOff() {
+            if (this.status){
+                this.status = false;
+            }else {
+                this.status =true
+            }
+
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        setChannel(channel) {
+            this.channel = channel;
+        }
+
+        getChannelTV() {
+            return this.channel;
+        }
+
+        setVolumeTV(number) {
+            this.volume = number;
+        }
+
+        getVolumeTV() {
+            return this.volume
+        }
+
+        upDownChannelTV(flag) {
+            if (flag==="+"){
+                this.channel++;
+            } else {
+                this.channel--;
+            }
+        }
+        upDownVolumeTV(flag) {
+            if (flag==="+"){
+                this.volume++;
+            }else {
+                this.volume--;
+            }
+
+        }
+    }
+
+    let tivi = new Tivi();
+    let remote =new Remote(tivi);
+    let tiviObj=document.getElementById('tivi');
+    let arrayChannel=["hinhTV0.jpg","hinhTV1.jpg","hinhTV2.jpg","hinhTV3.jpg","hinhTV4.jpg","hinhTV5.jpg","hinhTV6.jpg","hinhTV7.jpg","hinhTV8.jpg","hinhTV9.jpg"];
+    function turnOnOff() {
+        remote.turnOnOff();
+        if (tivi.getStatus()){
+            tiviObj.src="hinhTV0.jpg";
+        }
+        else {
+            tiviObj.src="hinhTV.jpg";
+        }
+    }
+    function change(channel) {
+        if (tivi.getStatus()){
+            remote.setChannelRemote(channel)
+            tiviObj.src=arrayChannel[tivi.getChannelTV()];
+        }else {
+            alert("Hãy bật tivi lên")
+        }
+    }
+    function upDownChannel(flag) {
+        remote.upDownChannel(flag);
+        tiviObj.src=arrayChannel[tivi.getChannelTV()];
+    }
+    // alert(tivi.getStatus());
+    // alert("Bật tivi lên");
+    // remote.turnOnOff();
+    // alert(tivi.getStatus());
+    // alert("1.kênh hiện tại: "+tivi.getChannelTV()+" // Âm lượng: "+ tivi.getVolumeTV())
+    // remote.upDownChannel("+")
+    // remote.upDownVolume("+")
+    // alert("2.kênh hiện tại: "+tivi.getChannelTV()+" // Âm lượng: "+ tivi.getVolumeTV())
+    // remote.setChannelRemote(10);
+    // remote.setVolumeRemote(20);
+    // alert("3. kênh hiện tại: "+tivi.getChannelTV()+" // Âm lượng: "+ tivi.getVolumeTV())
+    // remote.upDownChannel("+");
+    // remote.upDownVolume("+");
+    // alert("4. kênh hiện tại: "+tivi.getChannelTV()+" // Âm lượng: "+ tivi.getVolumeTV())
+</script>
+</body>
+</html>

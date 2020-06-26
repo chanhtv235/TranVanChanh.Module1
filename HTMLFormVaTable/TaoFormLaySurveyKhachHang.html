@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form lấy survey khách hàng</title>
+</head>
+<body>
+<h1>Market Research Survey</h1>
+<p>Please take a few moments to complete this satisfaction survey.</p>
+<h3>What is range age?</h3>
+<select name="age">
+    <option value="1" selected>18-24</option>
+    <option value="2">25-34</option>
+    <option value="3"></option>35-50</option>
+    <option value="4">50+</option>
+</select>
+<h3>Gender Identity</h3>
+<input type="radio" name="gender" value="male"><label>Male</label><br>
+<input type="radio" name="gender" value="female"><label>Female</label><br>
+<input type="radio" name="gender" value="nonbinary"><label>Nonbinary</label><br>
+<input type="radio" id="orther" name="gender" value="Orther" onmouseup="document.getElementById('ortherInput').focus()"><label>Orther</label><br>
+<input type="text" id="ortherInput" name="gender" value="" onclick="document.getElementById('orther').checked ='checked';">
+<h3>Which of the following products have your purchased in the last 2 months. Please check all that apply.</h3>
+<input type="checkbox" name="product1" value="product1"><label>Product1</label> <br>
+<input type="checkbox" name="product2" value="product2"><label>Product2</label> <br>
+<input type="checkbox" name="product3" value="product3" ><label>Product3</label> <br>
+<h3>How often would you use our new product?</h3>
+<input type="radio" name="time" value="daily"><label>Daily</label><br>
+<input type="radio" name="time" value="weekly"><label>Weekly</label><br>
+<input type="radio" name="time" value="monthly"><label>Monthly</label>
+<h3>What would you pay for new product?</h3>
+$
+<input type="text" name="dolar" value="" style="width: 100px">.
+<input type="text" name="cent" value="" style="width: 60px"><br>
+&nbsp;&nbsp;Dolar &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cent
+<h3>How often would you use our new product?</h3>
+<textarea rows="5" cols="50" type="" name="time" value="daily"></textarea><br>
+<h3>Please rate your level of agreement with the flowing statement</h3>
+<table>
+    <tr bgcolor="gray">
+        <th></th>
+        <th>Strongly disagree</th>
+        <th>disagree</th>
+        <th>agree</th>
+        <th>Strongly agree</th>
+    </tr>
+    <tr>
+        <td>Our products is priced fairly</td>
+        <td><input type="radio" name="price"></td>
+        <td><input type="radio" name="price"></td>
+        <td><input type="radio" name="price"></td>
+        <td><input type="radio" name="price"></td>
+    </tr>
+    <tr bgcolor="#faebd7">
+        <td>Our products is high quality</td>
+        <td><input type="radio" name="quality"></td>
+        <td><input type="radio" name="quality"></td>
+        <td><input type="radio" name="quality"></td>
+        <td><input type="radio" name="quality"></td>
+    </tr>
+    <tr>
+        <td>You would recommend our products to friend or coworking</td>
+        <td><input type="radio" name="recommend"></td>
+        <td><input type="radio" name="recommend"></td>
+        <td><input type="radio" name="recommend"></td>
+        <td><input type="radio" name="recommend"></td>
+    </tr>
+</table>
+</body>
+</html>

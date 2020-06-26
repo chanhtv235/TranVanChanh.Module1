@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="ON/OFF" onclick="onOff()">
+<input type="button" value="connect" onclick="connect()">
+<img src="off.jpg" id="img">
+<script>
+    class SwitchButton{
+        constructor() {
+            this.status=false;
+            this.lamp=false;
+        }
+        connectLamp(lamp){
+            this.lamp=lamp;
+        }
+        switchOn(){
+            this.status=true;
+            this.lamp.turnOn();
+        }
+        switchOff(){
+            this.status=false;
+            this.lamp.turnOff();
+        }
+    }
+    class Lamp{
+        constructor() {
+            this.status="off.jpg";
+        }
+
+        turnOn(){
+            this.status ="on.jpg"
+        }
+        turnOff(){
+            this.status ="off.jpg"
+        }
+        getStatusLamp(){
+           return this.status;
+        }
+    }
+    let lamp1 = new Lamp();
+    let switch1= new SwitchButton();
+    let check=false;
+   function onOff(){
+       if (!check){
+           switch1.switchOn();
+           document.getElementById("img").src=lamp1.getStatusLamp();
+           check=true;
+       }else {
+           switch1.switchOff();
+           document.getElementById("img").src=lamp1.getStatusLamp();
+           check=false;
+       }
+   }
+   function connect() {
+       switch1.connectLamp(lamp1);
+   }
+
+</script>
+</body>
+</html>

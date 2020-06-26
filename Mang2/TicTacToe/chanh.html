@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<p id="hienthi"></p>
+<script>
+    let mang =[];
+    let check =true;
+    for (let i=0; i<10; i++){
+        mang[i]=[];
+        for (let j=0; j<10;j++){
+            mang[i][j]=' ';
+        }
+    }
+   //////
+    let table='<table border="1">';
+    for (let i=0; i<10;i++){
+        table+='<tr>';
+        for (let j=0;j<10;j++){
+            table+='<td style="height: 20px; width: 20px" onclick="play('+i+','+j+')">'+mang[i][j]+'</td>'
+        }
+        table+='</tr>';
+    }
+    table+='</table>';
+    document.getElementById('hienthi').innerHTML=table;
+
+    function play(i,j) {
+        if (check){
+            if (mang[i][j]==='X'||mang[i][j]==='O'){
+                alert(mang[i][j]);
+            }else {
+                mang[i][j]='X';
+                check=false;
+                ktThang();
+            }
+        }else {
+            if (mang[i][j]==='X'||mang[i][j]==='O'){
+                alert('ô đã chọn;')
+            }else {
+                mang[i][j]='O';
+                check=true;
+            }
+        }
+
+        let table='<table border="1">';
+        for (let i=0; i<10;i++){
+            table+='<tr>';
+            for (let j=0;j<10;j++){
+                table+='<td style="height: 20px; width: 20px" onclick="play('+i+','+j+')">'+mang[i][j]+'</td>'
+            }
+            table+='</tr>';
+        }
+        table+='</table>';
+        document.getElementById('hienthi').innerHTML=table
+    }
+    function ktThang() {
+        for (let i=0; i<10;i++){
+            for (let j=0;j<10;j++){
+                if(mang[i][j]==="X"){
+                    if (mang[i][j+1]==='X'&&mang[i][j-1]==='X'){
+                        alert("bạn chiến thăng")
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

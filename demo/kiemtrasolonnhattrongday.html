@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số lớn nhất</title>
+</head>
+<body>
+<script>
+    let a1 = parseInt(prompt("Nhập vào số thứ nhất"));
+    let a2 = parseInt(prompt("Nhập vào số thứ 2"));
+    let a3 = parseInt(prompt("Nhập vào số thứ 3"));
+    let a4 = parseInt(prompt("Nhập vào số thứ 4"));
+    let a5 = parseInt(prompt("Nhập vào số thứ 5"));
+    let a=[];
+    a[0]= a1;
+    a[1]=a2;
+    a[2]=a3;
+    a[3]=a4;
+    a[4]=a5;
+    let i=1;
+    let n = a.length;
+    alert("n= " + n);
+    let max = a[i];
+    while(i<=n){
+        alert("i= "+i);
+        if (max<a[i]){
+            max=a[i];
+        }
+        i=i+1;
+        alert("max "+max);
+    }
+    alert("giá trị cuối cùng max= " +max);
+</script>
+</body>
+</html>

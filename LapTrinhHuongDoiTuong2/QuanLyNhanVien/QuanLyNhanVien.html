@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .khung {
+            border: solid;
+            border-width: 1px;
+        }
+    </style>
+    <script src="NhanVien.js"></script>
+    >
+</head>
+<body>
+<div class="khung" style="margin-left: 200px;width: 700px;height: 500px">
+    <h1 style="margin-left: 150px">Quản lý Nhân Viên</h1>
+    <div>
+        <input type="button" style="background: lightgreen" value="Thêm mới Nhân Viên" onclick="themNhanVien()">
+    </div>
+    <div>
+        <label>Tên</label>
+        <input type="text" id="ten" style="width: 80px"><br>
+        <label>Ngày sinh</label>
+        <input type="text" id="ngaySinh" style="width: 80px"><br>
+        <label>Địa chỉ</label>
+        <input type="text" id="diaChi" style="width: 80px"><br>
+        <label>Lương</label>
+        <input type="text" id="luong" style="width: 80px"><br>
+        <label>Chức vụ </label>
+        <input type="text" id="chucVu" style="width: 80px"><br>
+        <input type="button" value="Thêm mới " style="width: 80px">
+    </div>
+    <div>
+        <p id="display"></p>
+    </div>
+
+</div>
+
+<script>
+    let listNhanVien = [];
+    let nhanVien1 = new NhanVien("Chương", "22/12/20", "Đà Nẵng", "2000", "Tổ trưởng");
+    let nhanVien2 = new NhanVien("Chương", "22/12/20", "Đà Nẵng", "2000", "Tổ trưởng");
+    let nhanVien3 = new NhanVien("Chương", "22/12/20", "Đà Nẵng", "2000", "Tổ trưởng");
+    listNhanVien.push(nhanVien1);
+    listNhanVien.push(nhanVien2);
+    listNhanVien.push(nhanVien3);
+    hienThi();
+
+    function hienThi() {
+        let tableString = '<table border="1">\n' +
+            '<tr>\n' +
+            '<th>Số thứ tự</th>\n' +
+            '<th> Tên nhân Viên</th>\n' +
+            '<th> Ngày tháng năm sinh</th>\n' +
+            '<th> Địa chỉ</th>\n' +
+            '<th> Lương</th>\n' +
+            '<th> Chức vụ</th>\n' +
+            '<th style="background: yellow"> Sửa</th>\n' +
+            '<th style="background: red"> Xóa</th>\n' +
+            '</tr>';
+        for (let i = 0; i < listNhanVien.length; i++) {
+            tableString += ' <tr>\n' +
+                '<td>' + (i + 1) + '</td>\n' +
+                '<td>' + listNhanVien[i].getTen() + '</td>\n' +
+                '<td>' + listNhanVien[i].getNgaySinh() + '</td>\n' +
+                '<td>' + listNhanVien[i].getDiaChi() + '</td>\n' +
+                '<td>' + listNhanVien[i].getLuong() + '</td>\n' +
+                '<td>' + listNhanVien[i].getChucVu() + '</td>\n' +
+                '<td> <input type="button" value="Sửa" style="background: yellow" onclick="suaThongTin(' + i + ')"></td>\n' +
+                ' <td> <input type="button" value="Xóa" style="background: crimson" onclick="xoaNhanVien(' + i + ')"></td>\n' +
+                '</tr>';
+        }
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+    function themNhanVien() {
+        let ten = prompt("nhập tên công nhân:");
+        let ngaySinh = prompt("nhập ngày tháng năm sinh:");
+        let diaChi = prompt("nhập địa chỉ:");
+        let luong = prompt("nhập lương:");
+        let chucVu = prompt("nhập chức vụ:");
+        let nhanVien = new NhanVien(ten, ngaySinh, diaChi, luong, chucVu);
+        listNhanVien.push(nhanVien);
+        hienThi();
+    }
+
+    function suaThongTin(i) {
+        let choose = parseInt(prompt("Chọn thông tin cần chỉnh sửa\n" + listNhanVien[i].toString()));
+        switch (choose) {
+            case 1:
+                listNhanVien[i].setTen(prompt("Sửa lại tên"));
+                break;
+            case 2:
+                listNhanVien[i].setNgaySinh(prompt("Sửa lại ngày sinh"));
+                break;
+            case 3:
+                listNhanVien[i].setDiaChi(prompt("Sử lịa địa chỉ"));
+                break;
+            case 4:
+                listNhanVien[i].setLuong(prompt("Sửa lại Lương"));
+                break;
+            case 5:
+                listNhanVien[i].setChuVu(prompt("Sửa lại chức vụ"));
+                break;
+            default:
+                alert("bạn chọn chưa đúng. chọn lại nhé");
+                    suaThongTin(i);
+        }
+        hienThi();
+    }
+    function xoaNhanVien(id) {
+        let xacNhanXoa = confirm("Bạn có muốn xóa tên nhân viên : " + listNhanVien[id].getTen() + " không?");
+        if (xacNhanXoa) {
+            listNhanVien.splice(id, 1);
+        }
+        hienThi();
+    }
+
+</script>
+</body>
+</html>

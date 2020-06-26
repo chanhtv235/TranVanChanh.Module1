@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor() {
+            this.status = "On";
+            this.pin = 100;
+            this.memoryDraft = [];
+            this.memorySended = [];
+            this.memoryImport = [];
+        }
+
+        turnOn() {
+            this.status = "On"
+        }
+
+        turnOff() {
+            this.status = "Off"
+        }
+
+        makeDraft(message) {
+            this.memoryDraft.push(message);
+            this.pin--;
+        }
+
+        sendMessage(mobile) {
+            mobile.memoryImport = this.memoryDraft;
+            this.memorySended = this.memoryDraft;
+            this.memoryDraft = [];
+        }
+
+        showMessageImport() {
+            return this.memoryImport;
+        }
+
+        showMessageSended() {
+            alert(this.memorySended);
+        }
+    }
+
+    let samSung = new Mobile();
+    let nokia = new Mobile();
+    // samSung.sendMessage(nokia);
+    // nokia.showMessageImport();
+    // let iphone= new Mobile();
+    // samSung.makeDraft("Xin Chao iphone");
+    // samSung.sendMessage(iphone);
+    // iphone.showMessageImport()
+
+    function makeDraft(name) {
+        if (name === 'samSung') {
+            let message = document.getElementById("samSung").value;
+            samSung.makeDraft(message);
+            document.getElementById("samSung").value = "";
+        } else {
+            let message = document.getElementById("nokia").value;
+            nokia.makeDraft(message);
+            document.getElementById("nokia").value = "";
+        }
+    }
+
+    function send(name) {
+        if (name === 'samSung') {
+            samSung.sendMessage(nokia);
+            alert("tin nhắn đã được gửi")
+        } else {
+            nokia.sendMessage(samSung);
+            alert("tin nhắn đã được gửi")
+        }
+
+    }
+
+    function show(name) {
+        if (name === 'samSung') {
+            document.getElementById("samSung").value = samSung.showMessageImport();
+        }
+        document.getElementById("nokia").value = nokia.showMessageImport();
+    }
+</script>
+<div>
+    <input type="text" id="samSung" style="height: 40px;width: 300px">
+    <input type="button" value="make" onclick="makeDraft('samSung')">
+    <input type="button" value="Send" onclick="send('samSung')">
+    <input type="button" value="show" onclick="show('samSung')">
+</div>
+<div>
+
+    <input type="text" id="nokia" style="height: 40px;width: 300px">
+    <input type="button" value="make" onclick="makeDraft('nokia')">
+    <input type="button" value="Send" onclick="send('nokia')">
+    <input type="button" value="shown" onclick="show('nokia')">
+</div>
+</body>
+</html>

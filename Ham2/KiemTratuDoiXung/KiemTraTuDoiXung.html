@@ -7,7 +7,12 @@
 <body>
 <script>
     let string = prompt(" Nhập vào chuỗi cần kiểm tra");
-    alert('Từ bạn nhập vào là đối xướng: '+kiemTraTuDoiXung(string));
+    if (kiemTraTuDoiXung(string)){
+        alert(string+ " là từ đối xứng")
+    }else {
+        alert(string+ " ko đối xứng")
+    }
+
     function kiemTraTuDoiXung(st) {
         for (let i =0; i<st.length/2;i++){
             if(st.charAt(i)!==st.charAt(st.length-1-i)){

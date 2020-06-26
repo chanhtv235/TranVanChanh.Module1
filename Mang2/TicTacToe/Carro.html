@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro</title>
+</head>
+
+<body>
+<p id="hienThi"></p>
+<table>
+    <tr>
+        <td style="height: 20px; width: 20px"></td>
+    </tr>
+</table>
+<script>
+    let checkPlayer1=true;
+    let array =new Array(10);
+    for (let i=0;i< array.length;i++){
+        array[i]= new Array(10);
+        for (let j=0;j<array[i].length;j++){
+            array[i][j]=' ';
+        }
+    }
+    ///
+    let tableString ='<table border="1">';
+    for (let i=0;i<array.length;i++){
+        tableString+='<tr>';
+        for (let j=0; j<array[i].length;j++){
+            tableString+='<td style="height: 20px; width: 20px" onclick="play('+i+','+j+')">'+array[i][j]+'</td>'
+        }
+        tableString+='</tr>';
+    }
+    tableString+='</table>';
+    document.getElementById('hienThi').innerHTML=tableString;
+
+    function play(i,j) {
+        if (checkPlayer1&&checkPlayed(i,j)){
+            array[i][j]='X';
+            checkPlayer1=false;
+            if (checkWin1()){
+                alert('Nguoi choi so 1 chien thang')
+            }
+        }else if (!checkPlayer1&&checkPlayed(i,j)) {
+            array[i][j]='O';
+            checkPlayer1=true;
+            if (checkWin1()){
+                alert('NGuoi choi so 2 chien thang')
+            }
+        }
+
+        let tableString ='<table border="1">';
+        for (let i=0;i<array.length;i++){
+            tableString+='<tr>';
+            for (let j=0; j<array[i].length;j++){
+                tableString+='<td style="height: 20px; width: 20px" onclick="play('+i+','+j+')">'+array[i][j]+'</td>'
+            }
+            tableString+='</tr>';
+        }
+        tableString+='</table>';
+        document.getElementById('hienThi').innerHTML=tableString;
+    }
+    function checkPlayed(i,j){
+        if (array[i][j]==='X'||array[i][j]==='O'){
+            alert('O ban da duoc danh roi. Vui long nhap lai!')
+            return false;
+        }
+        return true;
+    }
+    function checkWin1() {
+        for (let i=0; i<array.length;i++){
+            for (let j=0;j<array[i].length;j++){
+                if (array[i][j]==='X'){
+                    if (array[i][j+1]==='X'&&array[i][j+2]==='X'){
+                        return true;
+                    }
+                    if (array[i+1][j]==='X'&&array[i+2][j]==='X'){
+                        return true;
+                    }
+                    if (array[i+1][j+1]==='X'&&array[i+2][j+2]==='X'){
+                        return true;
+                    }
+                    if (array[i+1][j-1]==='X'&&array[i+2][j-2]==='X'){
+                        return true;
+                    }
+
+                }
+                if (array[i][j]==='O'){
+                    if (array[i][j+1]==='O'&&array[i][j+2]==='O'){
+                        return true;
+                    }
+                    if (array[i+1][j]==='O'&&array[i+2][j]==='O'){
+                        return true;
+                    }
+                    if (array[i+1][j+1]==='O'&&array[i+2][j+2]==='O'){
+                        return true;
+                    }
+                    if (array[i+1][j-1]==='O'&&array[i+2][j-2]==='O'){
+                        return true;
+                    }
+
+                }
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

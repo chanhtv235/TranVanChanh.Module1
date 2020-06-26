@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" onclick="addNewCustomer();">
+<p id="result"></p>
+<script>
+
+   let arrListCustomers = new Array();
+    function addNewCustomer() {
+        let arrAddCustomers = new Array();
+        arrAddCustomers[1] = prompt('Nhập Số CMND:');
+        arrAddCustomers[2] = prompt('Nhập Ngày Tháng Năm Sinh:');
+        arrAddCustomers[3] = prompt('Nhập Email:');
+        arrAddCustomers[4] = prompt('Nhập địa chỉ');
+        arrAddCustomers[5] = prompt('Nhập Loại Customer:');
+        arrAddCustomers[6] = prompt('Nhập % Giảm Giá:');
+        arrAddCustomers[7] = prompt('Nhập Số Người Đi Cùng:');
+        arrAddCustomers[8] = prompt('Nhập Số Ngày Thuê:');
+        arrAddCustomers[9] = prompt('Nhập Loại Dịch Vụ:');
+        arrAddCustomers[10] = prompt('Nhập Loại Phòng Muốn Thuê:');
+        arrListCustomers.push(arrAddCustomers);
+        alert(arrListCustomers);
+        alert(arrListCustomers.length);
+
+    }
+</script>
+</body>
+</html>

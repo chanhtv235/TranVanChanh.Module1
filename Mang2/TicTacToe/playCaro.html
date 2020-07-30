@@ -16,6 +16,7 @@
         }
     }
     display();
+
     function display() {
         let tableString = "<table border=\"1\">"
         for (let i = 0; i < 10; i++) {
@@ -34,13 +35,13 @@
             array[i][j] = "X";
             checkPlay1 = false;
             display();
-           setTimeout(checkWin1,100)
+            setTimeout(checkWin1, 100)
         } else if (!checkPlay1 && !checkValue(i, j)) {
             array[i][j] = "O";
             checkPlay1 = true;
             display();
             setTimeout()
-            if (checkWin2()){
+            if (checkWin2()) {
                 alert("người chơi số 2 chiến thăng")
             }
         }
@@ -55,20 +56,21 @@
         }
 
     }
+
     function checkWin1() {
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
-                if(array[i][j]==="X"){
-                    if (array[i][j+1]==="X"&&array[i][j+2]==="X"){
+                if (array[i][j] === "X") {
+                    if (array[i][j + 1] === "X" && array[i][j + 2] === "X") {
                         alert("chien thang");
                     }
-                    if (array[i+1][j]==="X"&&array[i+2][j]==="X"){
+                    if (array[i + 1][j] === "X" && array[i + 2][j] === "X") {
                         alert("chien thang");
                     }
-                    if (array[i+1][j+1]==="X"&&array[i+2][j+2]==="X"){
+                    if (array[i + 1][j + 1] === "X" && array[i + 2][j + 2] === "X") {
                         alert("chien thang");
                     }
-                    if (array[i-1][j-1]==="X"&&array[i-2][j-2]==="X"){
+                    if (array[i - 1][j - 1] === "X" && array[i - 2][j - 2] === "X") {
                         alert("chien thang");
                     }
                 }
@@ -76,20 +78,21 @@
         }
 
     }
+
     function checkWin2() {
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
-                if(array[i][j]==="O"){
-                    if (array[i][j+1]==="O"&&array[i][j+2]==="O"){
+                if (array[i][j] === "O") {
+                    if (array[i][j + 1] === "O" && array[i][j + 2] === "O") {
                         return true;
                     }
-                    if (array[i+1][j]==="O"&&array[i+2][j]==="O"){
+                    if (array[i + 1][j] === "O" && array[i + 2][j] === "O") {
                         return true;
                     }
-                    if (array[i+1][j+1]==="O"&&array[i+2][j+2]==="O"){
+                    if (array[i + 1][j + 1] === "O" && array[i + 2][j + 2] === "O") {
                         return true;
                     }
-                    if (array[i-1][j-1]==="O"&&array[i-2][j-2]==="O"){
+                    if (array[i - 1][j - 1] === "O" && array[i - 2][j - 2] === "O") {
                         return true;
                     }
                 }

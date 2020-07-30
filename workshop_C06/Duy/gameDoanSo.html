@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let min = parseInt(prompt("Nhập Vào Khoảng Từ"));
+    let max = parseInt(prompt(" Đến"));
+    let ramdom = min + Math.round((Math.random() * (max - min)));
+    alert(ramdom)
+    let i = 0;
+    do {
+        let number = prompt("Nhập Số Dự Đoán")
+        if (number == ramdom) {
+            alert("Đoán Đúng")
+            break;
+        } else if (number > ramdom) {
+            alert("Nhập số bé hơn")
+        } else {
+            alert("Nhập số lớn hơn")
+        }
+        i++;
+
+    } while (true)
+
+
+</script>
+
+</body>
+</html>

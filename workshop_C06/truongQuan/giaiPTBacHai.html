@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let valueA = parseInt(prompt("Nhập vào hệ số a"));
+    let valueB = parseInt(prompt("Nhập vào hệ số b"));
+    let valueC = parseInt(prompt("Nhập vào hệ số c"));
+    let delta = valueB * valueB - 4 * valueA * valueC;
+    if (valueA == 0)
+        if (valueB == 0) {
+            if (valueC == 0)
+                document.write("phương trình vô số nghiệm");
+            else
+                document.write("phương trình vô nghiệm:");
+        } else
+            document.write("phương trình có nghiệm là :" + -valueC / valueA);
+
+    else if (delta == 0) {
+        document.write("phương trình có nghiệm kép" + -valueB / 2);
+    } else if (delta < 0) {
+        document.write("phương trình vô nghiệm");
+    } else
+        document.write("phương trình có 2 nghiệm phân biêt:" + (-valueB + Math.sqrt(delta)) / 2 + "  " + (-valueB - Math.sqrt(delta)) / 2);
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>May Tính Đơn Gian</title>
+</head>
+<body>
+<label>Số thứ nhất </label>
+<input type="text" id="so1">
+<label>Số thứ 2</label>
+<input type="text" id="so2"><br>
+<input type="button" value="Phép cộng" onclick="cong();">
+<input type="button" value="Phép trừ" onclick="tru();">
+<input type="button" value="Phép nhân" onclick="nhan();">
+<input type="button" value="Phép chia" onclick="chia();">
+<p id="hienThi"></p>
+<script>
+function cong() {
+    let so1= document.getElementById("so1").value;
+    let so2= document.getElementById("so2").value;
+    so1=parseInt(so1);
+    so2= parseInt(so2);
+    let ketQua=so1+so2;
+    document.getElementById("hienThi").innerText="Kết quả: "+ ketQua;
+
+}
+function tru() {
+    let so1= document.getElementById("so1").value;
+    let so2= document.getElementById("so2").value;
+    so1=parseInt(so1);
+    so2= parseInt(so2);
+    let ketQua=so1-so2;
+    document.getElementById("hienThi").innerText="Kết quả: "+ ketQua;
+
+}
+function nhan() {
+    let so1= document.getElementById("so1").value;
+    let so2= document.getElementById("so2").value;
+    so1=parseInt(so1);
+    so2= parseInt(so2);
+    let ketQua=so1*so2;
+    document.getElementById("hienThi").innerText="Kết quả: "+ ketQua;
+
+}
+function chia() {
+    let so1= document.getElementById("so1").value;
+    let so2= document.getElementById("so2").value;
+    so1=parseInt(so1);
+    so2= parseInt(so2);
+    let ketQua=so1/so2;
+    document.getElementById("hienThi").innerText="Kết quả: "+ ketQua;
+
+}
+</script>
+</body>
+</html>

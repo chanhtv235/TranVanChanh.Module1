@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tienVaybandau=parseInt(prompt('Số tiền vay:'));
+    let tienVaylaisuat= tienVaybandau;
+    let soThang=parseInt(prompt('Số tháng:'));
+    let laiSuat=parseInt(prompt('Lãi suất:'));
+    let tienSinhloi=0;
+    let tienPhaitra=0;
+    for (let i=0;i<soThang;i++){
+        tienSinhloi=tienVaylaisuat/100*laiSuat;
+        tienVaylaisuat+=tienSinhloi;
+        alert(tienSinhloi);
+    }
+    tienPhaitra=tienVaybandau+tienSinhloi;
+    alert("Số tiền phải trả sau "+soThang+" tháng là: "+tienPhaitra);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // let tienGoc=parseInt(prompt('Số tiền gửi:'));
+    // let laiSuatThang=parseInt(prompt('Lãi suất 1 tháng:'));
+    // let soThang=parseInt(prompt('Số tháng gửi:'));
+    // let tienSinhloiHangThang=0;
+    // let tongTienNhan=tienGoc;
+    // for (let i=0;i<soThang;i++){
+    //     tienSinhloiHangThang=tongTienNhan*laiSuatThang/100;
+    //     tongTienNhan+=tienSinhloiHangThang;
+    // }
+    // alert("Số tiền phải trả sau "+soThang+" tháng là: "+tongTienNhan);
+</script>
+</body>
+</html>

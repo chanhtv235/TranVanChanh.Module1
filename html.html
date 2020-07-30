@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Caculator</label>
+<input type="text" name="number " id="input1" value="12">
+<input type="text" name="number " id="input2" value="12"><br>
+<input type="button" value="Addition" onclick="cong()">
+<input type="button" value="Subtraction" onclick="tru();">
+<input type="button" value="multiplication" onclick="nhan();">
+<input type="button" value="Division" onclick="chia()">
+<p id="hienThi"></p>
+<script>
+    function cong() {
+        // khai báo biến
+        let nhap1=0;
+        let nhap2=0;
+        // lấy giá trị thẻ  input có id="input1" xuống gán cho biến nhap1;
+        nhap1 = document.getElementById("input1").value; // thẻ input nên dùng thuộc tính ".value"
+        // lấy giá trị thẻ  input có id="input2" xuống gán cho biến nhap2;
+        nhap2 = document.getElementById("input2").value;
+        // khai báo biến ketQua;
+        let ketQua;
+        // thực hiện phép tính cộng
+        ketQua=parseInt(nhap1)+parseInt(nhap2); // hàm parsenInt chuyển dữ liệu về kiểu số. vì khi nhập vào máy tính hiểu là chuỗi
+        // hiện thị kết quả ra thẻ p có id="hienThi"
+        document.getElementById("hienThi").innerText= ketQua;// thẻ p nên dùng thuộc tính ".innerText"
+    }
+    function tru() {
+
+    }
+    function nhan() {
+
+    }
+    function chia() {
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính BMI</title>
+</head>
+<body>
+<button value="Choi" onclick="inter()">choi</button>
+<script>
+
+    let a = 0;
+    let b = 1;
+    let count = 0;
+    let count1=0;
+    function inter() {
+        let number = parseInt(prompt("nhap so can nhap"));
+        while (count <= 40) {
+            if (number==a) {
+                alert("số bạn càn tìm có trong số fibonancci");
+                count1++;
+                break;
+            }
+            b = b + a;
+            a = b-a;
+            count++;
+        }
+        if (count1===0){
+            alert("số bạn tìm không có trong dãy fibonacci");
+        }
+    }
+</script>
+</body>
+</html>

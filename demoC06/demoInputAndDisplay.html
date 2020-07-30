@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lấy dữ liệu và hiện thị</title>
+</head>
+<body>
+<input type="text" id="input">
+<select id="select">
+    <option value="select1"> Giá trị 1</option>
+    <option value="select2"> Giá trị 2</option>
+</select>
+<input type="button" value="Hiện Thị" onclick="hienThi();">
+<p id="hienThi">Hiện thị</p>
+</body>
+<script>
+    function hienThi() {
+        // lấy dữ liệu thừ thẻ input có id ="input";
+        let a = document.getElementById("input").value;
+        // lấy dữ liệu từ thẻ select có id="select"
+        let b= document.getElementById("select").value;
+        // thực hiện phép tính cộng chuỗi
+        let ketQua ="giá trị input là: "+a+"- Giá trị thẻ select: "+b;
+        // hiện thị kết quả ra thẻ p có id="hienThi"
+        document.getElementById("hienThi").innerHTML= ketQua;
+    }
+</script>
+</html>

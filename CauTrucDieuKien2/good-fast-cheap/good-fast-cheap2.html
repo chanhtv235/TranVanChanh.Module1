@@ -14,25 +14,26 @@
 <input type="range" min="0" max="1" value="0" onclick="check('fast')" id="fast" style="margin-left: 29px">
 <script>
     function check(choose) {
-        let objGood =document.getElementById("good");
-        let objCheap =document.getElementById("cheap");
-        let objFast =document.getElementById("fast");
+        let objGood = document.getElementById("good");
+        let objCheap = document.getElementById("cheap");
+        let objFast = document.getElementById("fast");
         switch (choose) {
             case "good":
-                alert('objGood.value')
-                // if (objGood.value==1&&objCheap.value==1){
-                //     objFast.value=0;
-                // }
+                let check1=objGood.value == 1 && objFast.value == 1;
+                if (check1) {
+                    objFast.value = 0;
+                }
                 break;
             case "cheap":
-                if (objCheap.value==1&&objFast.value==1){
-                    objGood.value=0;
+                if (objCheap.value == 1 && objGood.value == 1) {
+                    objGood.value = 0;
                 }
                 break;
             case "fast":
-                if (objFast.value==1&&objGood.value==1){
-                    objCheap.value=0;
+                if (objFast.value == 1 && objCheap.value == 1) {
+                    objCheap.value = 0;
                     break;
+                }
         }
 
     }

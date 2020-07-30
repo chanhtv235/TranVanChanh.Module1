@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function tanSoXuatHien(a) {
+        a = a.split(" ");
+        alert(a)
+        let b = [];
+        let dem = 0;
+        for (let i = 0; i < a.length; i++) {
+            dem = 1;
+            for (let j =i+1;j<a.length; j++) {
+                if (a[i] === a[j]) {
+                    dem++;
+                    a.splice(j, 1);
+                    j--
+                }
+            }
+            b.push(a[i] + ": "+ dem);
+            alert("mang   "+ a);
+        }
+        alert(b);
+    }
+    tanSoXuatHien(prompt("nhap chuoi"));
+</script>
+</body>
+</html>

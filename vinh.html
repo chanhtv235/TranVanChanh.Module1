@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weightApple = weight;
+        }
+        getWeight() {
+            return this.weightApple;
+        }
+        setWeight(weight) {
+            this.weightApple = weight;
+        }
+        isEmpty() {
+            if (this.weightApple > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        decrease() {
+            this.weightApple--;
+        }
+    }
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getWWeight(weight) {
+            return this.weight;
+        }
+        setWeight(weight) {
+            this.weight = weight;
+        }
+        setGender(gender) {
+            this.gender = gender;
+        }
+        say(string) {
+            alert(string);
+        }
+        checked(apple) {
+            if (apple.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        eat(apple) {
+            if (this.checked(apple)) {
+                alert("dfsdf")
+                apple.weightApple--;
+                // this.weight++;
+                document.writeln("Đã ăn !");
+            } else{
+                document.writeln(" Đã hết !");
+            }
+        }
+
+    }
+    let apple1 = new Apple(10);
+    let human1 = new Human('tin', 'male', 50);
+    let human2 = new Human("gai", 'female', 40);
+    while (!apple1.isEmpty()) {
+        human1.say("an tao di ");
+        human2.say("oke");
+        human2.eat(apple1);
+        alert(apple1.getWeight());
+        human2.say("anh an di");
+        human1.eat(apple1);
+        alert(apple1.getWeight());
+    }
+
+</script>
+</body>
+</html>

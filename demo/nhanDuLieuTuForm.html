@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo nhận dữ liệu và hiện thi ra của các thẻ</title>
+</head>
+<body>
+<input type="text" id="theInput"><br>
+<select id="theSelect">
+    <option value="giaTri1"> Giá trị 1</option>
+    <option value="giaTri2"> Giá trị 2</option>
+    <option value="giaTri3"> Giá trị 3</option>
+</select>
+<p id="hienThiTheP">Thẻ P</p>
+<label>Thẻ input </label>
+<input id="hienThiTheInput">
+<input type="button" value="onClick" onclick="hienThi();">
+<br>
+thẻ sự kiện onChange
+<input type="text" onchange="hienThi2();"><br>
+thẻ sự kiện oninput
+<input id="onInPut" oninput="hienThiOnInput()">
+<p id="hienThiOnInput">oninput</p>
+<script>
+    function hienThiOnInput() {
+        let giaTri = document.getElementById("onInPut").value;
+        document.getElementById("hienThiOnInput").innerHTML = giaTri;
+    }
+
+    function hienThi2() {
+        alert("sự kien onchange")
+    }
+
+    function hienThi() {
+        let a = document.getElementById("theInput").value;
+        let select = document.getElementById("theSelect").value;
+        document.getElementById("hienThiTheP").innerText = "Hiện thị ở thẻ p: " + a;
+        document.getElementById("hienThiTheInput").value = "Hiện thị ở thẻ input: " + select;
+    }
+</script>
+</body>
+</html>

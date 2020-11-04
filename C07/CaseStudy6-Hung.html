@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Employee {
+        constructor(nameNV,dateOfBirthNV,idCardNV,phoneNumber,emailNV,level,position) {
+            this.nameNV = nameNV;
+            this.idCardNV = idCardNV;
+            this.dateOfBirthNV = dateOfBirthNV;
+            this.phoneNumber = phoneNumber;
+            this.emailNV = emailNV;
+            this.level = level;
+            this.position = position;
+        }
+        getNameNV(){
+            return this.nameNV;
+        }
+        setNameNV(nameNV){
+            this.nameNV = nameNV;
+        }
+        getIDCardNV(){
+            return this.idCardNV;
+        }
+        setIDCardNV(idCardNV){
+            this.idCardNV = idCardNV;
+        }
+        getDateOfBirthNV(){
+            return this.dateOfBirthNV;
+        }
+        setDateOfBirthNV(dateOfBirthNV){
+            this.dateOfBirthNV = dateOfBirthNV;
+        }
+        getPhoneNumber(){
+            return this.phoneNumber;
+        }
+        setPhoneNumber(phoneNumber){
+            this.phoneNumber = phoneNumber;
+        }
+        getEmailNV(){
+            return this.emailNV;
+        }
+        setEmailNV(emailNV){
+            this.emailNV = emailNV;
+        }
+        getLevel(){
+            return this.level;
+        }
+        setLevel(level){
+            this.level = level;
+        }
+        getPosition(){
+            return this.position;
+        }
+        setPosition(position){
+            this.position = position;
+        }
+        payEmployee(){
+            let luongNV = 0;
+            if (this.getPosition() === "Manager"){
+                luongNV = 500;
+            } else if (this.getPosition() === "Sale"){
+                luongNV = 300;
+            } else if (this.getPosition() === "Marketing"){
+                luongNV = 200;
+            }
+            return luongNV;
+        }
+
+    }
+    class Customer {
+        constructor(name,idCard,dateOfBirth,email,address,typeCustomer,
+                    discount,quantityIncluded,rentDays,service,typeRoom) {
+            this.name = name;
+            this.idCard = idCard;
+            this.dateOfBirth = dateOfBirth;
+            this.email = email;
+            this.address = address;
+            this.typeCustomer = typeCustomer;
+            this.discount = discount;
+            this.quantityIncluded = quantityIncluded;
+            this.rentDays = rentDays;
+            this.service = service;
+            this.typeRoom = typeRoom;
+        }
+        getName (){
+            return this.name;
+        }
+        getIDCard (){
+            return this.idCard;
+        }
+        getDateOfBirth (){
+            return this.dateOfBirth;
+        }
+        getEmail (){
+            return this.email;
+        }
+        getAddress (){
+            return this.address;
+        }
+        getTypeCustomer (){
+            return this.typeCustomer;
+        }
+        getDiscount (){
+            return this.discount;
+        }
+        getQuantityIncluded (){
+            return this.quantityIncluded;
+        }
+        getRentDays (){
+            return this.rentDays;
+        }
+        getService (){
+            return this.service;
+        }
+        getTypeRoom(){
+            return this.typeRoom;
+        }
+        setName (name){
+            this.name = name;
+        }
+        setIDCard (idCard){
+            this.idCard = idCard;
+        }
+        setDateOfBirth (dateOfBirth){
+            this.dateOfBirth = dateOfBirth;
+        }
+        setEmail (email){
+            this.email = email;
+        }
+        setAddress (address){
+            this.address = address;
+        }
+        setTypeCustomer (typeCustomer){
+            this.typeCustomer = typeCustomer;
+        }
+        setDiscount (discount){
+            this.discount = discount;
+        }
+        setQuantityIncluded (quantityIncluded){
+            this.quantityIncluded = quantityIncluded;
+        }
+        setRentDays (rentDays){
+            this.rentDays = rentDays;
+        }
+        setService (service){
+            this.service = service;
+        }
+        setTypeRoom(typeRoom){
+            this.typeRoom = typeRoom;
+        }
+        totalPay(){
+            let pay = 0;
+            if (this.service === "Villa"){
+                pay = 500 ;
+            } else if (this.service === "House"){
+                pay = 300;
+            } else if (this.service === "Room"){
+                pay = 100;
+            }
+            return pay * this.rentDays * (1 - this.discount/100);
+        }
+    }
+
+
+    let arrListCustomer = [];
+    let arrEmployee = [];
+    function displayMainMenu() {
+        let choose = parseInt(prompt("1. Them khach hang" + "\n2. Thong tin khach hang" + "\n3. Sua thong tin khach hang"
+            + "\n4. Xoa khach hang" + "\n5.Tong thanh toan" + "\n6.Them nhan vien" + "\n7. Thong tin nhan vien"));
+        switch (choose) {
+            case 1:{
+                addNewCustomer();
+                break;
+            }
+            case 2:{
+                displayCustomer();
+                break;
+            }
+            case 3:{
+                editCustomer();
+                break;
+            }
+            case 4:{
+                deleteCustomer();
+                break;
+            }
+            case 5:{
+                totalFinal();
+                break;
+            }
+            case 6:{
+                addNewEmployee();
+                break;
+            }
+            case 7:{
+                displayEmployee();
+            }
+            default:{
+                alert("Failed");
+            }
+        }
+    }
+    function addNewCustomer() {
+        let checkValid = false;
+        let regexIdcard = /^[\d]{9,9}$/;
+        let regexBirthday = /^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$/;
+        let regexsl = /^\d+$/;
+        let regexEmail = /\S+@\S+\.\S+/;
+        let regexDiscount = /^\d+$/;
+        let regexRentDays = /^\d+$/;
+        let idCard;
+        let dateOfBirth;
+        let quantityIncluded;
+        let email;
+        let discount;
+        let rentDays;
+        let customer = new Customer();
+        let name = prompt("Ten khach hang");
+        do {
+            idCard = prompt("Chung minh nhan dan");
+            if (regexIdcard.test(idCard)){
+                checkValid = true;
+            } else {
+                alert("Chung minh nhan dan khong hop le");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        do {
+            dateOfBirth = prompt("Ngay sinh");
+            if (regexBirthday.test(dateOfBirth)){
+                checkValid = true;
+            }else {
+                alert("Ngay sinh khong hop le");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        do {
+            email = prompt("Email");
+            if (regexEmail.test(email)){
+                checkValid = true;
+            } else {
+                alert("Email khong hop le");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        let address = prompt("Dia chi");
+        let service = prompt("Loai dich vu (Villa: 500$, House: 300$, Room: 100$");
+        let typeRoom = prompt("Loai phong thue");
+        let typeCustomer = prompt("Loai khach hang");
+        do {
+            discount = parseInt(prompt("Giam gia"));
+            if (regexDiscount.test(discount)){
+                checkValid = true;
+            } else {
+                alert("Vui long nhap dung so giam gia");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        do {
+            quantityIncluded = prompt("So luong khach hang");
+            if (regexsl.test(quantityIncluded)){
+                checkValid = true;
+            } else {
+                alert("Vui long nhap dung so luong khach");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        do {
+            rentDays = parseInt(prompt("So ngay thue"));
+            if (regexRentDays.test(rentDays)){
+                checkValid = true;
+            } else {
+                alert("Vui long nhap dung so ngay thue");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        // let customer = new Customer(name, idCard, dateOfBirth,
+        //     email, address, typeCustomer, discount, quantityIncluded, rentDays, service, typeRoom);
+        customer.setName(name);
+        customer.setIDCard(idCard);
+        customer.setDateOfBirth(dateOfBirth);
+        customer.setEmail(email);
+        customer.setAddress(address);
+        customer.setService(service);
+        customer.setTypeRoom(typeRoom);
+        customer.setTypeCustomer(typeCustomer);
+        customer.setDiscount(discount);
+        customer.setQuantityIncluded(quantityIncluded);
+        customer.setRentDays(rentDays);
+        arrListCustomer.push(customer);
+        alert("Nhap thanh cong!");
+        displayMainMenu();
+    }
+
+    function displayCustomer() {
+        let temp = "";
+        for (i = 0; i < arrListCustomer.length; i++){
+            temp += i + ". Name: " + arrListCustomer[i].getName() + "\n";
+        }
+        let chooseDisplay = parseInt(prompt(temp));
+        alert("1. Họ và tên: " + arrListCustomer[chooseDisplay].getName() + "\n" +
+            "2. Chứng minh nhân dân: " + arrListCustomer[chooseDisplay].getIDCard() + "\n" +
+            "3. Ngày sinh: " + arrListCustomer[chooseDisplay].getDateOfBirth() + "\n" +
+            "4. Email: " + arrListCustomer[chooseDisplay].getEmail() + "\n" +
+            "5. Địa chỉ: " + arrListCustomer[chooseDisplay].getAddress() + "\n" +
+            "6. Loại dịch vụ: " + arrListCustomer[chooseDisplay].getService() + "\n" +
+            "7. Loại phòng: " + arrListCustomer[chooseDisplay].getTypeRoom() + "\n" +
+            "8. Loại khách hàng: " + arrListCustomer[chooseDisplay].getTypeCustomer() + "\n" +
+            "9. Giảm giá: " + arrListCustomer[chooseDisplay].getDiscount() + "\n" +
+            "10. Số khách hàng: " + arrListCustomer[chooseDisplay].getQuantityIncluded() + "\n" +
+            "11. Số ngày thuê: " + arrListCustomer[chooseDisplay].getRentDays());
+        displayMainMenu();
+    }
+    displayMainMenu();
+
+    function totalFinal() {
+        let temp = "";
+        for (i = 0; i < arrListCustomer.length; i++) {
+            temp += i + ". Name: " + arrListCustomer[i].getName() + "\n";
+        }
+        let chooseDisplay = parseInt(prompt(temp));
+        let customer = arrListCustomer[chooseDisplay];
+        alert("Tong tien phai tra la: " + customer.totalPay() + "usd");
+        displayMainMenu();
+    }
+
+    function addNewEmployee(){
+        let checkValid = false;
+        let regexBirthday = /^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$/;
+        let regexIdcard = /^[\d]{9,9}$/;
+        let regexPhoneNumber = /^[\d]{10,10}$/;
+        let regexEmail = /\S+@\S+\.\S+/;
+        let nameNV = prompt("ten nhan vien");
+        let dateOfBirthNV;
+        do {
+            dateOfBirthNV = prompt("Ngay sinh");
+            if (regexBirthday.test(dateOfBirthNV)){
+                checkValid = true;
+            }else {
+                alert("Ngay sinh khong hop le");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        let idCardNV;
+        do {
+            idCardNV = prompt("Chung minh nhan dan");
+            if (regexIdcard.test(idCardNV)){
+                checkValid = true;
+            } else {
+                alert("Chung minh nhan dan khong hop le");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        let phoneNumber;
+        do{
+            phoneNumber = prompt("Nhap so dien thoai");
+            if (regexPhoneNumber.test(phoneNumber)){
+                checkValid = true;
+            } else {
+                alert("Vui long nhap du 10 so dien thoai");
+            }
+        }while (!checkValid);
+        checkValid = false;
+
+        let emailNV;
+        do {
+            emailNV = prompt("Email");
+            if (regexEmail.test(emailNV)){
+                checkValid = true;
+            } else {
+                alert("Email khong hop le");
+            }
+        } while (!checkValid);
+        checkValid = false;
+
+        let level = prompt("Trinh do");
+        let position = prompt("Vi tri");
+        let employee = new Employee();
+        employee.setNameNV(nameNV);
+        employee.setDateOfBirthNV(dateOfBirthNV);
+        employee.setIDCardNV(idCardNV);
+        employee.setPhoneNumber(phoneNumber);
+        employee.setEmailNV(emailNV);
+        employee.setLevel(level);
+        employee.setPosition(position);
+        arrEmployee.push(employee);
+        alert("Nhap thanh cong");
+        displayMainMenu();
+
+    }
+    function displayEmployee() {
+        let temp = "";
+        for (let i = 0; i < arrEmployee.length; i++){
+            temp += i + ". Name: " + arrEmployee[i].getNameNV() + "\n";
+        }
+        let chooseDisplay = parseInt(prompt(temp));
+        alert("1. ten NV: " + arrEmployee[chooseDisplay].getNameNV() + "\n" +
+            "2. Ngay sinh: " + arrEmployee[chooseDisplay].getDateOfBirthNV() + "\n" +
+            "3. CMND: " + arrEmployee[chooseDisplay].getIDCardNV() + "\n" +
+            "4. So dien thoai: " + arrEmployee[chooseDisplay].getPhoneNumber() + "\n" +
+            "5. Email: " + arrEmployee[chooseDisplay].getEmailNV() + "\n" +
+            "6. Trinh do: " + arrEmployee[chooseDisplay].getLevel() + "\n" +
+            "7. Vi tri: " + arrEmployee[chooseDisplay].getPosition() + "\n" +
+            "8. Luong: " + arrEmployee[chooseDisplay].payEmployee());
+        displayMainMenu();
+    }
+</script>
+</body>
+</html>

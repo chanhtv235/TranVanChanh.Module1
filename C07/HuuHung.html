@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+   let T="abcabcfffabcw";
+   let S="abc";
+   let count=0;
+   let count1=0;
+   for (let i=0;i<T.length;i++){
+       alert(T[i])
+      if(T[i]!==S[i]){
+          T=T.substring(i,T.length+1)
+          i=0;
+          count1=0;
+      }else {
+          count1++;
+      }
+      if (count1==S.length){
+          count++;
+          count1=0;
+          T=T.substring(i+1,T.length+1)
+          alert(count)
+          alert(T);
+          i=-1;
+      }
+   }
+   alert(count)
+
+</script>
+</body>
+</html>

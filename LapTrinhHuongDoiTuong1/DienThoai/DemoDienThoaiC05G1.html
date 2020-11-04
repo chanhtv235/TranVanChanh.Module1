@@ -24,8 +24,13 @@
         }
 
         makeDraft(message) {
-            this.memoryDraft.push(message);
-            this.pin--;
+            if (this.status=="On"){
+                this.memoryDraft.push(message);
+                this.pin--;
+            }else {
+                alert("Điên thoại tắt")
+            }
+
         }
 
         sendMessage(mobile) {
@@ -43,14 +48,22 @@
         }
     }
 
-    let samSung = new Mobile();
-    let nokia = new Mobile();
+    //
+    // let samSung = new Mobile();
+    // let nokia = new Mobile();
+    // samSung.makeDarft("hello")
     // samSung.sendMessage(nokia);
+    //
     // nokia.showMessageImport();
     // let iphone= new Mobile();
     // samSung.makeDraft("Xin Chao iphone");
     // samSung.sendMessage(iphone);
-    // iphone.showMessageImport()
+    // iphone.showMessageImport();
+
+
+
+
+
 
     function makeDraft(name) {
         if (name === 'samSung') {

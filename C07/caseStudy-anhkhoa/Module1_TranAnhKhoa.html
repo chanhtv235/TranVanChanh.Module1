@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 1 - Tran Anh Khoa</title>
+</head>
+<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+    }
+    div.mainMenu {
+        width: 1500px;
+        margin: auto;
+        position: absolute;
+    }
+    div.ex1 {
+        position: fixed;
+        top: 70px;
+        width: 700px;
+        margin: auto;
+        border: 3px solid #73AD21;
+    }
+    .table1 {
+        border-style: solid;
+        border-width: 10px;
+        padding: 5px;
+    }
+    .table {
+        border-style: solid;
+        border-width: 2px;
+        padding: 5px;
+    }
+    .table td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    .table tr:nth-child(even){background-color: #f2f2f2;}
+
+    .table tr:hover {background-color: #ddd;}
+
+    .table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+<body>
+<div class="mainMenu" id="mainMenu">
+    <button class="button" type="button" onclick="showAddNewCustomer(); displayAddNewCustomer()">Main Menu</button>
+    <button class="button" type="button" onclick="showAddEmployee(); displayAddNewEmployee()">Add Employee</button>
+</div>
+<div class="ex1" id = "addNewCustomers" style="display: none">
+    <h2>Add New Customer</h2>
+    <table class="table1">
+        <tr>
+            <td><label>
+                <input type="text" id = "newCustomer" style="font-size: 20px;height: 35px" onfocus="this.value = ''" placeholder="New Customer Name">
+            </label></td>
+            <td><button class="button" type="button" onclick="addOneCustomer()">Add</button></td>
+            <td><button class="button" type="button" onclick="addSeveralCustomers()">Add Several Customers</button> </td>
+        </tr>
+    </table>
+    <h2>Display All Customers</h2>
+    <p id ="customersList"></p>
+</div>
+<div class="ex1" id = "addNewEmployee" style="display: none">
+    <h2>Add New Employee</h2>
+    <table class="table1">
+        <tr>
+            <td><label>
+                <input type="text" id = "newEmployee" style="font-size: 20px;height: 35px" onfocus="this.value = ''" placeholder="New Employee Name">
+            </label></td>
+            <td><button class="button" type="button" onclick="addOneEmployee()">Add</button></td>
+            <td><button class="button" type="button" onclick="addSeveralEmployees()">Add Several Employees</button> </td>
+        </tr>
+    </table>
+    <h2>Display All Customers</h2>
+    <p id ="employeeList"></p>
+</div>
+<div class="ex1" id="editCustomerInfo" style="display: none">
+    <p id ="containOfEditCustomerInfo"></p>
+</div>
+<div class="ex1" id="displayCustomerInfo" style="display: none">
+    <p id ="containOfDisplayCustomerInfo"></p>
+</div>
+<div class="ex1" id="editEmployeeInfo" style="display: none">
+    <p id ="containOfEditEmployeeInfo"></p>
+</div>
+<div class="ex1" id="displayEmployeeInfo" style="display: none">
+    <p id ="containOfDisplayEmployeeInfo"></p>
+</div>
+<script src="Module1_TranAnhKhoa.js"></script>
+</body>
+</html>

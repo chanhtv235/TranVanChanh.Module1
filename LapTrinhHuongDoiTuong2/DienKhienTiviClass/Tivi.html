@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<img src="hinhTV.jpg" id="tivi" style="height: 450px;width: 600px">
-<input type="button" value="On/Off" onclick="turnOnOff()" style="width: 40px; height: 40px">
-<fieldset >
+<img src="hinhTV.jpg" id="tivi" style="height: 300px;width: 500px">
+
+<fieldset style="width: 250px">
     <div style="width: 250px">
+        <input type="button" value="On/Off"  onclick="turnOnOff()" style="width: 50px; height: 40px">
         <input type="button" value="1" onclick="change(this.value);" style="width: 40px; height: 40px">
         <input type="button" value="2" onclick="change(this.value);" style="width: 40px; height: 40px">
         <input type="button" value="3" onclick="change(this.value);" style="width: 40px; height: 40px">
@@ -18,7 +19,6 @@
         <input type="button" value="7" onclick="change(this.value);" style="width: 40px; height: 40px">
         <input type="button" value="8" onclick="change(this.value);" style="width: 40px; height: 40px">
         <input type="button" value="9" onclick="change(this.value);" style="width: 40px; height: 40px">
-        <input type="button" value="10" onclick="change(this.value);" style="width: 40px; height: 40px">
     </div>
     <div>
         <input type="button" value="+" onclick="upDownChannel(this.value);" style="width: 40px; height: 40px">
@@ -100,10 +100,12 @@
         }
 
         upDownChannelTV(flag) {
-            if (flag==="+"){
+            if (flag==="+"&& this.channel<10){
                 this.channel++;
-            } else {
+            } else if(flag==="-"&& this.channel>0) {
                 this.channel--;
+            }else {
+                alert("Đã hết kênh. Vui lòng quay lại")
             }
         }
         upDownVolumeTV(flag) {

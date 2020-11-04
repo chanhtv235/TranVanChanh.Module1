@@ -1,9 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Bài 5</title>
+</head>
+<body>
     <script>
+
+        let name=prompt(" Enter the name of star");
+        if(findStar(name)==0){
+            alert(name+ " -không thuộc về chùm sao!!");
+        }else {
+            alert(name +" là sao thuộc về chùm sao "+ findStar(name));
+        }
+
         function findStar(name) {
             let star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus'];
             let starGroup = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major','Leo'];
@@ -18,18 +28,6 @@
             }
             return result;
         }
-    </script>
-</head>
-<body>
-    <script>
-
-        let name=prompt(" Enter the name of star");
-        if(findStar(name)==0){
-            alert(name+ " -không thuộc về chùm sao!!");
-        }else {
-            alert(name +" là sao thuộc về chùm sao "+ findStar(name));
-        }
-
     </script>
 </body>
 </html>

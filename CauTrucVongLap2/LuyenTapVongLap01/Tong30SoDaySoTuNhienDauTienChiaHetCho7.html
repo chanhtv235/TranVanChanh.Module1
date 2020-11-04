@@ -2,23 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BÀI TẬP 02</title>
 </head>
 <body>
-    <script>
 
-    let N=7;
-    let tong=0;
-    let count=0;
-    while (count<30){
-     if(N%7==0){
-         tong +=N;
-         count++
-     }
-     N++;
-    }
-    alert("Tổng 30 số  đầu tiên trong dãy số tự nhiêu chai hết 7 là :"+tong);
-
-    </script>
+<script>
+  let tong=0;
+  let count =0;
+  let N=0;
+  while (count<30){
+      if (N%7===0){
+          tong+=N;
+          count++
+      }
+      N++;
+  }
+  alert("Tổng của 30 số đầu tiên chia hết cho 7 là :  "+tong)
+  // let tong=0;
+  // let count =0;
+  // for (let i=0;;i++){
+  //     if (i%7===0){
+  //         tong+=i;
+  //         count++
+  //     }
+  //    if (count>=3){
+  //        break;
+  //    }
+  // }
+  // alert("Tổng của 30 số đầu tiên chia hết cho 7 là :  "+tong)
+</script>
 </body>
 </html>

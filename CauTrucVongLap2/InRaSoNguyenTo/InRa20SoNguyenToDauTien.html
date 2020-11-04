@@ -5,26 +5,26 @@
     <title>in ra số lượng số nguyên tố</title>
 </head>
 <body>
-        <script>
-            let numbers = 20;
-            let count=0;
-            let N=2;
-            let daySoNguyenTo="";
-            while (count<numbers) {
-                let check=true;
-                for (let i=2;i<=Math.sqrt(N); i++){
-                    if(N%i==0){
-                        check=false;
-                        break;
-                    }
-                }
-                if (check) {
-                    daySoNguyenTo += N + ", ";
-                    count++;
-                }
-                N++;
+<script>
+    let numbers = 20;
+    let count = 0;
+    let N = 2;
+    let daySoNguyenTo = "";
+    while (count < numbers) {
+        let check = true;
+        for (let i = 2; i < N; i++) {
+            if (N % i == 0) {
+                check = false;
+                break;
             }
-            document.write(" Dãy số nguyên tố cần tìm là :"+ daySoNguyenTo);
-        </script>
+        }
+        if (check) {
+            daySoNguyenTo += N + ", ";
+            count++;
+        }
+        N++;
+    }
+    document.write(" Dãy số nguyên tố cần tìm là :" + daySoNguyenTo);
+</script>
 </body>
 </html>

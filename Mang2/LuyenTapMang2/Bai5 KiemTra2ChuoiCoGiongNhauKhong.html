@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra 2 chuỗi xem có giống nhau không</title>
+</head>
+<body>
+<script>
+    let string1 = prompt("Nhập vào chuôi thú nhất");
+    let string2 = prompt("Nhập vào chuôi thú hai");
+    let check = true;
+    if (string1.length == string2.length) {
+        for (let i = 0; i < string1.length; i++) {
+            if (string1.charAt(i) != string2.charAt(i)) {
+                check = false;
+                break;
+            }
+        }
+    } else {
+        check = false
+    }
+    if (check) {
+        alert("Hai chuỗi bằng nhau");
+    } else {
+        alert("Hai chuỗi không bằng nhau");
+    }
+</script>
+</body>
+</html>

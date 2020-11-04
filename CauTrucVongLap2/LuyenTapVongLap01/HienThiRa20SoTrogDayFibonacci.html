@@ -5,18 +5,21 @@
     <title>Hiện thị ra 20 số trong dãy số Fibonacci</title>
 </head>
 <body>
-    <script>
-        //Dãy Fibonacci là dãy vô hạn các số tự nhiên bắt đầu bằng hai phần tử 0 và 1 hoặc 1 và 1, các phần tử sau đó được thiết lập theo quy tắc mỗi phần tử luôn bằng tổng hai phần tử trước nó
-        let x1=0;
-        let x2=1;
-        let string= x1+", "+x2+", ";
-               for(let i=3;i<=20;i++){
-             x=x1+x2;
-             string +=x+",  ";
-             x1=x2;
-             x2=x;
-         }
-         alert(string);
-    </script>
+<script>
+    //Dãy Fibonacci là dãy vô hạn các số tự nhiên bắt đầu bằng hai phần tử 0 và 1 hoặc 1 và 1, các phần tử sau đó được thiết lập theo quy tắc mỗi phần tử luôn bằng tổng hai phần tử trước nó
+    let x1 = 0;
+    let x2 = 1;
+    // document.write(x1)
+    // document.write(x2)
+    let ketQua = x1 + ", " + x2 + ", ";
+    for (let i = 3; i <= 20; i++) {
+       let x = x1 + x2;
+       // document.write(x);
+        ketQua += x + ",  ";
+        x1 = x2;
+        x2 = x;
+    }
+    alert(ketQua);
+</script>
 </body>
 </html>

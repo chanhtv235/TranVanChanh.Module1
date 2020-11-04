@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    // Task1 Nhập dữ liệu
+    // Task1 Nhập dữ liệu cứng trong code luôn
     let name = "Trần Văn Chánh";
     let idCard = 123456789;
     let birthday = "11/03/1994";
@@ -144,7 +144,7 @@
                 } else {
                     totalPay = 100 * rentDays * (1 - discount / 100) - total_discout(birthday, address, customerType, rentDays);
                 }
-                alert(totalPay);
+                alert("Tổng giá tiền thành toán"+ totalPay);
                 break;
             case "4":
                 mainMenu();
@@ -205,7 +205,7 @@
         }
 
     }
-
+// Chương trình đầu tiên sẽ chạy vào đây do hàm mainMenue được gọi
     mainMenu();
 
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa phần tử trong mảng</title>
+</head>
+<body>
+<script>
+    let array = [1,2,3,12,34,2];
+    let number = prompt("Nhập vào số V cần xóa");
+    let index;
+    for(let i =0; i<array.length; i++){
+        if(array[i]==number){
+            index=i;
+            array.splice(i,1);
+        }
+    }
+    alert("Mảng sau khi bị xóa:"+ array.length);
+</script>
+</body>
+</html>

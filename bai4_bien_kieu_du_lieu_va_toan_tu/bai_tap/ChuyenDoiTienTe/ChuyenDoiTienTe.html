@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<table style="text-align: center; width: 800px">
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" id="Amount">
+        </th>
+        <th>
+            <select id="From Currency">
+                <option value="Vietnam">Vietnam</option>
+                <option value="USD">USD</option>
+            </select>
+        </th>
+        <th>
+            <select id="To Currency">
+                <option value="USD">USD</option>
+                <option value="Vietnam">Vietnam</option>
+            </select>
+        </th>
+        <th>
+            <button type="button" onclick="convert()" value="Covert">Convert</button>
+        </th>
+    </tr>
+</table>
+<p>
+<h3 style="color: blue" id="Display">Result:</h3>
+</p>
+</body>
+<script>
+    function convert() {
+        let amount = document.getElementById('Amount').value;
+        let fromCurrency = document.getElementById('From Currency').value;
+        let toCurrency = document.getElementById('To Currency').value;
+        if ((fromCurrency === "USD") && (toCurrency === "Vietnam")) {
+            document.getElementById("Display").innerHTML = "Result:" + amount * 23000;
+        } else if ((fromCurrency === "Vietnam") && (toCurrency === "USD")) {
+            document.getElementById("Display").innerHTML = "Result:" + amount / 23000;
+        } else {
+            document.getElementById("Display").innerHTML = "Result:" + amount
+        }
+    }
+</script>
+</html>

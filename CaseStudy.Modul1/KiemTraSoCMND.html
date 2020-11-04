@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Nhập CMND
+    let check=false;
+    do {
+        let CMND= prompt("Nhập số CMND ");
+         check=(kiemTraCMND(CMND));
+    }while (!check);
+
+// kiểm tra CMND
+    function kiemTraCMND(CMND){
+        let check=true;
+        if (CMND.length!=9||isNaN(CMND)){
+            check=false;
+        }
+       return check;
+    }
+
+</script>
+</body>
+</html>

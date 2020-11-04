@@ -10,16 +10,18 @@
 
 <script>
     function playNow() {
+        let firstNum =  parseInt(prompt("Khoảng đoán bắt đầu từ số: "));
+        let endNum =  parseInt(prompt("Khoảng đoán kết thúc với số: "));
+        let radom = Math.ceil((endNum - firstNum)*Math.random())+firstNum;
         for(let i = 1; i <= 3; i++) {
-            let firstNum =  parseInt(prompt("Khoảng đoán bắt đầu từ số: "));
-            let endNum =  parseInt(prompt("Khoảng đoán kết thúc với số: "));
-            let goal = (endNum - firstNum)*Math.random();
-            let guessNum = parseInt(prompt("You guess number? "));
-            if(guessNum == goal) {
-                alert("Bravo!!! You win!");
+            let guessNum = parseInt(prompt("Nhập số bạn cần dự đoán? "));
+            if(guessNum == radom) {
+                alert("Bạn đã đoán đúng");
                 break;
-            } else {
-                alert("Not matched!!!");
+            } else if (guessNum<radom){
+                alert("Số bạn nhập nhỏ hơn số cần dự đoán. Nhập lại");
+            }else{
+                alert("Số bạn nhập lớn hơn số cần dự đoán. Nhập lại")
             }
         }
     }

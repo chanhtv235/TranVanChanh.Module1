@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đêm số từ trong chuỗi</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhap vao mot chuoi");
+    let array = string.split(" ");
+    let n = array.length;
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        if (array[i] !== "") {
+            count++;
+        }
+    }
+    alert('So tu trong chuoi la:' + (count));
+</script>
+</body>
+</html>

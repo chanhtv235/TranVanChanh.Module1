@@ -2,74 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tạo Bảng Đơn Giản</title>
+    <title>FormDonGian</title>
 </head>
 <body>
-<div style="width: 400px">
-    <h1>Thời khóa biểu lớp T0908I</h1>
-    <table border="1">
-        <tr bgcolor="orange">
-            <th>Thứ 3</th>
-            <th>Thứ 5</th>
-            <th>Thứ 7</th>
+<form style="width: 400px;background:#dddddd;margin-left: 600px" >
+
+    <h1 style="background-color:red;text-align: center"><span style="color:white;">Thông tin</span></h1>
+    Họ và Tên<input type="text" name="yourname"><br>
+    Email<input type="text" name="email" style="margin-left: 30px"><br>
+    Sở thích
+    <table >
+        <tr>
+            <td><input name="hobby" value="sprt" type="checkbox"> Thể thao</td>
+            <td><input name="hobby" value="music" type="checkbox">Âm nhạc</td>
+            <td><input name="hobby" value="read" type="checkbox">Đọc sách<br></td>
         </tr>
         <tr>
-            <td>Toán</td>
-            <td>Hóa</td>
-            <td>Sinh</td>
+            <td><input name="hobby" value="web" type="checkbox">Lướt web</td>
+            <td><input name="hobby" value="game" type="checkbox">Chơi game</td>
+            <td><input name="hobby" value="movie" type="checkbox">Điện ảnh<br></td>
         </tr>
         <tr>
-            <td>Văn</td>
-            <td>Lịch sử</td>
-            <td>Địa lý</td>
-        </tr>
-        <tr>
-            <td>Khoa học</td>
-            <td>Công nghệ</td>
-            <td>Vật lý</td>
+            <td><input name="hobby" value="travel" type="checkbox">Du lịch <br></td>
+
         </tr>
     </table>
-</div>
-<table border="1">
-    <tr>
-        <th colspan="3"></th>
-        <th bgcolor="yellow">Thứ 3</th>
-        <th bgcolor="yellow">Thứ 5</th>
-        <th bgcolor="yellow">Thứ 7</th>
-    </tr>
-    <tr bgcolor="orange">
-        <th>Tuần</th>
-        <th>Ngày Bắt đầu</th>
-        <th>Ngày kết thúc</th>
-        <th colspan="3">Môn học</th>
-    </tr>
-    <tr>
-        <th>01</th>
-        <th>12/12/2019</th>
-        <th>14/14/2019</th>
-        <th>Toán</th>
-        <th>Lý</th>
-        <th>Hóa</th>
-    </tr>
-    <tr>
-    <tr>
-        <th>02</th>
-        <th>22/12/2019</th>
-        <th>24/14/2019</th>
-        <td>Văn</td>
-        <td>Lịch sử</td>
-        <td>Địa lý</td>
-    </tr>
-    <tr>
-        <th>03</th>
-        <th>27/12/2019</th>
-        <th>28/14/2019</th>
-        <td>Khoa học</td>
-        <td>Công nghệ</td>
-        <td>Vật lý</td>
-    </tr>
-    </tr>
+    <div style="text-align: center">
+        <input type="submit" value="Gửi thông tin">
+        <input type="reset" value="Nhập lại"><br>
+    </div>
 
-</table>
+</form>
 </body>
 </html>

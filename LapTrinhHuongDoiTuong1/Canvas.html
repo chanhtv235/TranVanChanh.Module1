@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    //VẼ HÌNH CHỮ NHẬT
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    // chỉ vẽ hình cn có đường viền dùng  1 lệnh dưới
+    // ctx.strokeRect(10,10,150,80); (tọa độ x, tọa độ y, chiều rộng, chiều cao)
+
+    // vẽ hình cn có tô màu dùng  2 lệnh dưới
+    ctx.fillStyle = "red"; /// đỏ màu cho lên
+    ctx.fillRect(10,10,150,80);// (tọa độ x, tọa độ y, chiều rộng, chiều cao)
+
+    let c1 = document.getElementById("myCanvas1");
+    let ctx1 = c1.getContext("2d");
+
+    // VẼ HÌNH  TRÒN
+    ctx1.beginPath();
+    ctx1.fillStyle = "red"; /// đỏ màu cho lên
+    ctx1.arc(50,50,50,0,2*Math.PI);// (tọa độ tâm x, tọa độ tâm y, bán kính, điểm bắt đầu vẽ (Điểm 0 bắt đầu tại vị trí 3 giờ), điểm kết thúc trên đường tròn(2PI nên vẽ đủ một vòng tròn, nếu 1 PI sẽ vẽ nửa đường tròn)
+
+    // nếu chỉ vẽ viền thì dùng
+    ctx1.stroke();
+
+    // nếu có tô màu thì dùng lệnh dưới
+    // ctx1.fill();
+</script>
+
+</body>
+</html>

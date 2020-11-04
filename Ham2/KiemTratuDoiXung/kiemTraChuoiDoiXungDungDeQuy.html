@@ -7,23 +7,43 @@
 <body>
 <script>
     let string = prompt("Nhập vào một chuỗi cần kiểm tra");
-    if (kiemTraChuoi(string)){
-        alert(string+" là chuỗi đối xứng");
-    }else {
-        alert(string+" ko phải là chuỗi đối xứng");
+    if (kiemTraChuoi(string)) {
+        alert(string + " là chuỗi đối xứng");
+    } else {
+        alert(string + " ko phải là chuỗi đối xứng");
     }
 
+    // function kiemTraChuoi(st) {
+    //     let first =0;
+    //     let last = st.length-1;
+    //     if (st[first]!==st[last]){
+    //         return false
+    //     }else if(first>=last){
+    //         return true;
+    //
+    //     }else {
+    //         return kiemTraChuoi(st.slice(1,st.length-1));
+    //     }
+    // }
+    // function kiemTraChuoi(st) {
+    //     if (st.charAt(0) == st.charAt(st.length - 1)) {
+    //         st = st.substring(1, st.length - 1);
+    //         alert(st)
+    //     } else {
+    //         return false;
+    //     }
+    //     if (st.length <= 1) {
+    //         return true;
+    //     }
+    //     return kiemTraChuoi(st)
+    // }
     function kiemTraChuoi(st) {
-        let first =0;
-        let last = st.length-1;
-        if (st[first]!==st[last]){
-            return false
-        }else if(first>=last){
-            return true;
-
-        }else {
-            return kiemTraChuoi(st.slice(1,st.length-1));
-        }
+       for (let i=0;i<st.length/2;i++){
+           if (st.charAt(i)!==st.charAt(st.length-1-i)){
+               return false;
+           }
+       }
+       return true;
     }
 </script>
 </body>

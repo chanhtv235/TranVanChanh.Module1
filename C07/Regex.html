@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // mã sinh viên; MSV-xxxx     (xxxx là các số 0-9)
+    // Ví dụ: MSV-0001; ok
+    // Ví dụ: MSV-3456; ok
+    // Ví dụ: MSv-3456; not (vì v viết thườn)
+    // Ví dụ: MSV-00012; not (có 5 số
+    // Ví dụ: MSV-000A; not ( x cuối có ký tự là chữ)
+
+    let serviceType;
+    let check=false;
+        do{
+            serviceType = prompt("Nhập loại dich vụ Villa/House/Room")
+            //https://regexr.com/
+            let reg=/^((Villa)||(House)||(Room))$/;
+            check=reg.test(serviceType);
+        }while (!check);
+    alert(serviceType);
+
+    // let email;
+    // let check=false;
+    // do{
+    //     email = prompt("Nhập mã sinh viên(MSV-xxxx), x là số 0-9")
+    //     //https://regexr.com/
+    //     let reg=/^[a-zA-Z]{3,10}\@[a-z]{3,5}\.[a-z]{2,3}$/;
+    //     check=reg.test(email);
+    // }while (!check);
+    // alert(email);
+
+</script>
+</body>
+</html>

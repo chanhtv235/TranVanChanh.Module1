@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ten =prompt("Nhập Họ và tên");
+    alert(chuanHoaTen(ten));
+
+    //Hàm chuẩn hóa họ tên nhập vào
+    function chuanHoaTen(name) {
+        name = name.toLowerCase();//đưa về in thường toàn bộ
+        let array = name.split(" ");// đưa vào mảng để bỏ ký tự khoảng trắng
+        let array2 = [];
+        for (let i = 0; i < array.length; i++) {// lấy các từ bỏ vào mảng array2
+            let tam = "";
+            if (array[i] !== "") {
+                tam = array[i].charAt(0).toUpperCase();// lấy ký tự đầu tiên chuyển thành Hoa
+                tam += array[i].substr(1);// Lấy các ký tự còn lại trong từ tính từ vị trí 1
+                array2.push(tam);
+            }
+        }
+        name = array2.join(" ");
+        return name;
+    }
+</script>
+</body>
+</html>

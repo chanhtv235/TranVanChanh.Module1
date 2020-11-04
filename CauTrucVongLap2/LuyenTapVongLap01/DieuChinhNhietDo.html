@@ -6,12 +6,21 @@
 </head>
 <body>
     <script>
-        let temp=parseInt(prompt("Nhập nhiệt độ hiện tại của phòng"));
-        if (temp<20){
-            alert("yêu cầu tăng nhiệt độ");
-        }else if(temp>100){
-            alert("yêu cầu giảm nhiệt độ");
-        }
+        let check=false;
+        do {
+            let temp=parseInt(prompt("Nhập nhiệt độ hiện tại của phòng"));
+            if (temp<20){
+                alert("Nhiệt độ thấp quá. yêu cầu tăng nhiệt độ");
+                check=true;
+            }else if(temp>100){
+                alert("Nhiệt độ cao quá. yêu cầu giảm nhiệt độ");
+                check=true;
+            }else {
+                alert("Nhiệt độ phù hợp .OK")
+                check=false;
+            }
+        }while (check)
+
     </script>
 </body>
 </html>

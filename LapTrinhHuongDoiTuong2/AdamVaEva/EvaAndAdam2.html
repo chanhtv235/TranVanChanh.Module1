@@ -2,89 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eva And Adam</title>
+    <title>Mô Phỏng Câu Chuyện Edam Và Eva</title>
 </head>
 <body>
-    <script>
-        function Apple() {
-            this.weight=10;
-            this.getWeight=function () {
-                return this.weight;
-            };
-            this.decrease= function () {
-                this.weight--;
-            };
-            this.isEmpty = function () {
-                if (this.weight===0){
-                    return true;
-                }else{
-                    return false;
-                }
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+        decreaseApple(){
+            this.weight--;
+        }
+        isEmpty() {
+            if (this.weight > 0) {
+                return false;
+            } else {
+                return true;
             }
         }
-        function Human(name,gender,weight) {
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+
+    class Human {
+        constructor(name, gender, weight) {
             this.name = name;
-            this.weight= weight;
-            this.gender=gender;
-            this.setName= function (name) {
-                this.name=name;
-            }
-            this.getName=function () {
-                return this.name;
-
-            };
-            this.setWeight =function (weight) {
-                this.weight=weight;
-            };
-            this.getWeight= function () {
-                return this.weight;
-            };
-            this.setGender=function (gender) {
-                this.gender=gender;
-            };
-            this.isMale=function () {
-                if(this.gender==="male"){
-                    return true;
-                }else {
-                    return false;
-                }
-            };
-            this.say=function (string) {
-                alert(string);
-            };
-            this.checkApple=function (Apple) {
-                if (Apple.isEmpty()===false){
-                  return   true;
-                }else {
-                   return false;
-                }
-            };
-            this.eat=function (Apple) {
-                if (this.checkApple(Apple)){
-                    this.weight++;
-                    Apple.decrease();
-                }else {
-                    alert("Táo đã hết");
-                }
-
+            this.gender = gender;
+            this.weight = weight;
+        }
+        isMale() {
+            if (this.gender === "Male") {
+                return true;
+            } else {
+                return false;
             }
         }
-        let apple =new Apple();
-        let eva = new Human('Eva','female',40);
-        let adam = new Human('Adam','female',50);
-        alert('Khối lượng quả táo'+apple.getWeight());
-        while (apple.getWeight()>0){
-            eva.say(eva.getName()+": Ăn táo đi "+adam.getName());
-            adam.eat(apple);
-            alert('Trọng lượng của '+ adam.getName()+': '+adam.getWeight());
-            alert('Trọng lượng của quả táo còn: ' + apple.getWeight());
-
-            adam.say(adam.getName()+":Anh ăn rồi, em ăn đi "+eva.getName());
-            eva.eat(apple);
-            alert('Trọng lượng của '+ eva.getName()+': '+eva.getWeight());
-            alert('Trọng lượng của quả táo còn: ' + apple.getWeight());
+        setGender(gender){
+            this.gender = gender;
         }
-
-    </script>
+        checkApple(apple) {
+            alert("Khối lượng quả táo còn "+apple.getWeight())
+        }
+        eat(apple) {
+            if (apple.weight > 0) {
+                apple.decreaseApple();
+                this.weight++;
+            } else {
+                alert ("Táo đã hết");
+            }
+        }
+        say(string) {
+            alert(string);
+        }
+        getName() {
+            return this.name;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getWeight() {
+            return this.weight;
+        }
+        setWeight(weight) {
+            this.weight = weight;
+        }
+    }
+    let human1 = new Human("Adam","Male",50);
+    let human2 = new Human("Eva","Female",30);
+    let apple = new Apple (10);
+    human1.say("Eva ăn táo");
+    human2.eat(apple);
+    human2.say("Ăn xong 1 miếng , anh ăn đi");
+    human1.eat(apple);
+    alert(apple.getWeight());
+</script>
 </body>
 </html>

@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>task7</title>
-    <script>
-        function changeLocal(a,b) {
-           let temp=a;
-            a=b;
-            b=temp;
-           return  alert("Hai số sau khi đổi chỗ cho nhau là: a= "+a+"  b= "+ b);
-        }
-    </script>
+    <title>Task 3</title>
 </head>
 <body>
 <script>
-    let a = parseInt(prompt("Enter a:"));
-    let b = parseInt(prompt("Enter b:"));
-    alert("Hai số ban đầu là a= "+a+" b= "+ b);
-    changeLocal(a,b);
+    function swap(a, b) {
+        let tam = a[0];
+        a[0] = b[0];
+        b[0] = tam;
+    }
+    let a = [1];
+    let b = [2];
+    alert(" kết quả trước khi swap a= " + a + ", b= " + b);
+    swap(a, b);
+    alert(" kết quả sau khí swap khi swap a= " + a + ", b= " + b);
+
 </script>
 </body>
 </html>

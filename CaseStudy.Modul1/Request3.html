@@ -7,174 +7,176 @@
 <body>
 <script>
 
-//1.///////////////////////////////////////////////////////////////////////////
-    let name=prompt("1.Enter Name Customer");
+    //1.///////////////////////////////////////////////////////////////////////////
+    let name = prompt("1.Enter Name Customer");
     name = eraseSpaceNotNecessary(name);
     name = toUpperCase_FirstChar(name);
     alert(name);
 
-//2.////////////////////////////////////////////////////////////////////////////
-    let idCard=0;
+    //2.////////////////////////////////////////////////////////////////////////////
+    let idCard = 0;
     let checkStatus;
     do {
-        checkStatus=false;
-        idCard=prompt("2.Enter ID Card Customer ");
-        if (testIsNotNumber(idCard)||idCard.length !==9){
-            checkStatus=true;
+        checkStatus = false;
+        idCard = prompt("2.Enter ID Card Customer ");
+        if (testIsNotNumber(idCard) || idCard.length !== 9) {
+            checkStatus = true;
         }
-    }while (checkStatus);
+    } while (checkStatus);
 
-/////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////
     let birthday;
     do {
-        checkStatus=false;
-        birthday=prompt("3.Enter birthday Customer:dd/mm/yyyy");
-        if(birthday.length!=10||birthday.charAt(2)!="/"||birthday.charAt(5)!="/") {
+        checkStatus = false;
+        birthday = prompt("3.Enter birthday Customer:dd/mm/yyyy");
+        if (birthday.length != 10 || birthday.charAt(2) != "/" || birthday.charAt(5) != "/") {
             checkStatus = true;
             // continue;
-       }else {
-            let count=0;
-            for (let i=0; i<birthday.length; i++){
-                for (let j=0;j<=9;j++){
-                    if (birthday.charAt(i)==j){
+        } else {
+            let count = 0;
+            for (let i = 0; i < birthday.length; i++) {
+                for (let j = 0; j <= 9; j++) {
+                    if (birthday.charAt(i) == j) {
                         count++;
                     }
                 }
             }
-            if(count!==(birthday.length-2)){
-                checkStatus=true;
+            if (count !== (birthday.length - 2)) {
+                checkStatus = true;
                 // continue;
-            }else if(parseInt(birthday.substr(0,2))>31||parseInt(birthday.substr(3,2))>12) {
-                checkStatus=true;
-            }else {
+            } else if (parseInt(birthday.substr(0, 2)) > 31 || parseInt(birthday.substr(3, 2)) > 12) {
+                checkStatus = true;
+            } else {
 
             }
         }
 
-    }while (checkStatus);
+    } while (checkStatus);
     alert(birthday);
-   ///////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
     let email;
     do {
-        checkStatus=false;
-        email=prompt("4.Enter Email Customer");
-        let countA=0;
-        let countDot=0;
-        for (let i=0;i<email.length; i++){          ///// kiểm tra email có 1 ký tự @ và ít nhất 1 dấu chấm"."
-           if (email.charAt(i)=="@"){
-               countA++
-           }
-           if(email.charAt(i)=="."){
-               countDot++
-           }
+        checkStatus = false;
+        email = prompt("4.Enter Email Customer");
+        let countA = 0;
+        let countDot = 0;
+        for (let i = 0; i < email.length; i++) {          ///// kiểm tra email có 1 ký tự @ và ít nhất 1 dấu chấm"."
+            if (email.charAt(i) == "@") {
+                countA++
+            }
+            if (email.charAt(i) == ".") {
+                countDot++
+            }
         }
-        if(countA !=1||countDot<1){
-            checkStatus=true;
+        if (countA != 1 || countDot < 1) {
+            checkStatus = true;
             continue;
         }
-        if (email.indexOf("@")<3){                  //// Kiểm tra email có ít nhất 3 ký tự trước @.
-            checkStatus=true;
+        if (email.indexOf("@") < 3) {                  //// Kiểm tra email có ít nhất 3 ký tự trước @.
+            checkStatus = true;
         }
-    }while(checkStatus);
+    } while (checkStatus);
     //////////////////////////////////////////////////////////////////////
-    let address=prompt("5.Enter Address Customer");
-        address=eraseSpaceNotNecessary(address);
-        address=toUpperCase_FirstChar(address);
+    let address = prompt("5.Enter Address Customer");
+    address = eraseSpaceNotNecessary(address);
+    address = toUpperCase_FirstChar(address);
 
-    let customerType=prompt("6.Enter Type Customer");
-        customerType=toUpperCase_FirstChar(customerType);
+    let customerType = prompt("6.Enter Type Customer");
+    customerType = toUpperCase_FirstChar(customerType);
 
     //////////////////////////////////////////////////////////////////////
     let discount;
     do {
-        checkStatus=false;
-        discount=prompt("7.Enter Discount");
-        if (testIsNotNumber(discount)){
-            checkStatus=true;
+        checkStatus = false;
+        discount = prompt("7.Enter Discount");
+        if (testIsNotNumber(discount)) {
+            checkStatus = true;
         }
-    }while (checkStatus);
+    } while (checkStatus);
     //////////////////////////////////////////////////////////////////////
     let serviceNumber;
     do {
-        checkStatus=false;
-        serviceNumber=prompt("8.Enter service Number");
-        if (testIsNotNumber(serviceNumber)){
-            checkStatus=true;
+        checkStatus = false;
+        serviceNumber = prompt("8.Enter service Number");
+        if (testIsNotNumber(serviceNumber)) {
+            checkStatus = true;
         }
-    }while (checkStatus);
+    } while (checkStatus);
 
-   ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
     let rentDays;
     do {
         checkStatus = false;
-        rentDays =prompt("9.Enter rent Day");
-        if (testIsNotNumber(rentDays)){
-            checkStatus=true;
+        rentDays = prompt("9.Enter rent Day");
+        if (testIsNotNumber(rentDays)) {
+            checkStatus = true;
         }
-    }while (checkStatus);
+    } while (checkStatus);
     /////////////////////////////////////////////////////////////////////
     let typeService = prompt("10.Enter Type Service");
     typeService = eraseSpaceNotNecessary(typeService);
-    typeService= toUpperCase_FirstChar(typeService);
+    typeService = toUpperCase_FirstChar(typeService);
     let typeRoom = prompt("11.Enter Type room");
-    typeRoom=eraseSpaceNotNecessary(typeRoom);
-    typeRoom= toUpperCase_FirstChar(typeRoom);
+    typeRoom = eraseSpaceNotNecessary(typeRoom);
+    typeRoom = toUpperCase_FirstChar(typeRoom);
     ////////////////////////////////////////////////////////////////////
-    let total=0;
-    if(typeService=="Villa")
-       total=rentDays*500*(100-discount)/100;
-      else if (typeService=="House")
-        total =rentDays*300*(100-discount)/100;
-      else
-        total=rentDays*100*(100-discount)/100;
-    alert("Info of Custommer\n"+
-        "1.Name         : " + name  + "\n"+
-        "2.ID Card      : " + idCard +"\n" +
-        "3.Birthday     : " + birthday + "\n"+
-        "4.Email        : " + email+   "\n"+
-        "5.Address       : " + address+ "\n"+
-        "6.Type Customer: " + customerType+"\n"+
-        "7.Discount     : " + discount+ "\n"+
-        "8.Acompanning  : " + serviceNumber+ "\n"+
-        "9.Renting day  : " + rentDays+ "\n"+
-        "10.Type Service : " + typeService+"\n"+
-        "11.Type Room    : " + typeRoom+ "\n" +
+    let total = 0;
+    if (typeService == "Villa")
+        total = rentDays * 500 * (100 - discount) / 100;
+    else if (typeService == "House")
+        total = rentDays * 300 * (100 - discount) / 100;
+    else
+        total = rentDays * 100 * (100 - discount) / 100;
+    alert("Info of Custommer\n" +
+        "1.Name         : " + name + "\n" +
+        "2.ID Card      : " + idCard + "\n" +
+        "3.Birthday     : " + birthday + "\n" +
+        "4.Email        : " + email + "\n" +
+        "5.Address       : " + address + "\n" +
+        "6.Type Customer: " + customerType + "\n" +
+        "7.Discount     : " + discount + "\n" +
+        "8.Acompanning  : " + serviceNumber + "\n" +
+        "9.Renting day  : " + rentDays + "\n" +
+        "10.Type Service : " + typeService + "\n" +
+        "11.Type Room    : " + typeRoom + "\n" +
         "12. Total Pay   : " + total
-        );
+    );
 
-   ///Ham kiem tra number khong phai la so hoặc là số nhưng không phải là nguyên dương
-    function testIsNotNumber(number){
-        let count=0;
-        for (let i=0;i<number.length;i++){
-            for (let j=0;j<=9;j++){
-                if (number.charAt(i)==j){
+    ///Ham kiem tra number khong phai la so hoặc là số nhưng không phải là nguyên dương
+    function testIsNotNumber(number) {
+        let count = 0;
+        for (let i = 0; i < number.length; i++) {
+            for (let j = 0; j <= 9; j++) {
+                if (number.charAt(i) == j) {
                     count++;
                 }
             }
         }
-        if(count!=number.length){
+        if (count != number.length) {
             return true;
         }
     }
-   //Hàm xử lý các khoảng trắng dư thừa
+
+    //Hàm xử lý các khoảng trắng dư thừa
     function eraseSpaceNotNecessary(str) {
-        str=str.trim();
-        for (let i=0;i<str.length;i++) {
+        str = str.trim();
+        for (let i = 0; i < str.length; i++) {
             if (str.charAt(i) == " ") {
                 str = str.substring(0, i) + " " + str.substring(i + 1, str.length).trim();
             }
         }
         return str;
     }
+
     // Hàm tạo các ký tự đầu in HOA
     function toUpperCase_FirstChar(str) {
         str = str.toLowerCase();
         alert(str);
-        str = str.replace(str.charAt(0),str.charAt(0).toUpperCase());// ký tự đầu in hoa
+        str = str.replace(str.charAt(0), str.charAt(0).toUpperCase());// ký tự đầu in hoa
         alert(str);
-        for (let i=0;i<str.length;i++){
-            if (str.charAt(i)==" "){
-                str=str.replace(str.charAt(i+1),str.charAt(i+1).toUpperCase());
+        for (let i = 0; i < str.length; i++) {
+            if (str.charAt(i) == " ") {
+                str = str.replace(str.charAt(i + 1), str.charAt(i + 1).toUpperCase());
             }
         }
         alert(str);
